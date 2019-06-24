@@ -56,7 +56,6 @@ used to identify the optimal solutions are expressed in terms of flexibility, ea
 to achieve this goal was to explore other approaches and test the existing solutions. 
 
 
-
 Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
 Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
 rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
@@ -80,7 +79,7 @@ and legislation on access to online data \cite{swier}.
 
 Some of the official statistics bureaus that have run similar projects have opted to outsource this component to companies specialized 
 in collecting, processing and storing the data instead of acquiring the data directly. We explored several existing software solutions: 
-Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch cite{nutch}, RSelenium \cite{rs1}, \cite{rs2} 
+Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1}, \cite{rs2} 
 and \cite{rvest}. 
 Based on an analysis of the advantages and disadvantages of each solution we chose to work with the Robot framework. 
 
@@ -104,7 +103,7 @@ specifications), the date collection and the website address. The selection of t
 under observation is based on the CPI national standard classification. We collected about 50,000 to 70,000 records every month.
 
 
-Data collection took place through the Robot Framework software solution. It is worth mentioning that Robot Framework
+Data collection took place through the Robot Framework and RSelenium software solution. It is worth mentioning that Robot Framework
 has a high degree of configurability through the possibility of introducing specific procedures regarding the technology
 behind the sites. This software solution proved to be a scalable web-scrapping tool that can fulfill the requirements of a 
 large organization. The automatic collection of prices observed on the sites included in the sample was made during
@@ -129,7 +128,17 @@ on the result of the automatic data collection.
 
 
 In the following, the activities carried out at each stage will be detailed, noting that we attempted to keep the 
-traditional CPI methodology as much as possible intact. The first activity was the data cleaning. We started with 
+traditional CPI methodology as much as possible intact. A graphical representation of the data collection and processing is shown in \ref{fig:6}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig6.eps}
+	\caption{Data collection and processing session}
+	\label{fig:6}
+\end{figure}
+
+
+The first activity was the data cleaning. We started with 
 the web scrapped files and performed some basic operations checking for missing data and other basic validation operations. 
 In case there are missing items among the data sets, the web-scrapping process resumes, after checking the online accessibility 
 of the site and the log files of the web-scrapping application. Some possible error sources could be: 
