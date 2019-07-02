@@ -296,7 +296,7 @@ Several attempts were made to develop an automatic encoding procedure with encou
 would involve deviations from the established methodological standard, manifested by the appearance and disappearance 
 of the articles in the sample with a high frequency. We tried several machine learning and distance-based algorithms 
 for this procedure and the results are presented in table 1. The best results, as it can be observed in \ref{table:1}, 
-were obtained using the Levenstein distance.
+were obtained using the Levenshtein distance.
 
 
 \begin{table}[h!]
@@ -320,11 +320,11 @@ were obtained using the Levenstein distance.
 
 \section{Some methodological aspects}\label{methodology}
 
-The scope of the project was to asses if online observed prices can be successfully used as a substitute data set for computing, either the traditional CPI or a similar experimental statistics, e.g. online observed CPI. Therefore, in order to retain the results, as much as possible, comparable with the traditional CPI, the collection periods within a month, 
-along with the goods and services included in the CPI national classification were preserved. Due to practical limitations regarding the allocated resources for this project, the data collection process was focused on food and beverages and items covering clothing and footwear categories, as these types of goods 
+The scope of the project was to asses if online observed prices can be successfully used as a substitute data set for computing, either the traditional CPI or a similar experimental statistics, e.g. online observed CPI. Therefore, in order to retain, as much as possible, comparable results with the traditional CPI, the collection periods within a month, 
+along with the goods and services included in the CPI national classification were preserved. Due to practical limitations regarding the allocated resources for this project, the data collection process was focused on food and beverages and items covering clothing and footwear categories, as these types of goods
 hold the biggest share in household's consumption expenses, e.g. food accounts for nearly 40\% of total expenses\cite{hhs}. 
 
-CPI is computed by aggregating at different stages indices a product/variety, assortment and group/category level, the entire process being graphically described by \ref{fig:2}. After data pre-processing, prices are aggregated into an arithmetic 
+CPI is computed by weighted serial aggregation of elementary price indices at product/variety, assortment and group/category level, the entire process being a combination of traditional procedures\cite{cpi} and intermediate aggregations targeted at product survivability from one period to another. The process is being graphically described by \ref{fig:2}. After data pre-processing, i.e. testing if data is consistent with the computation requirements, removing duplicates, matching products across different periods, the first step requires prices aggregation into an arithmetic 
 monthly average for each item, given that data was collected 3 times per month for food and beverages and once per month for clothes and shoes. 
 \begin{equation}\label{eq:1}
 \overline{p}_{v} = \frac{\sum{p_{v_{n}}}}{n} ,
@@ -336,36 +336,33 @@ monthly average for each item, given that data was collected 3 times per month f
 
 The average is used to compute elementary 
 price indices at product/variety level, by dividing the current monthly average for an item to it's respective base period monthly average. 
+
 \begin{equation}\label{eq:2}
 i_{p_{v}} = \frac{\overline{p}_{v_{current}}}{\overline{p}_{v_{base}}} ,
 \end{equation}
+
 \begin{center}	
 	$i_{p_{v}}$ = elementary prices index for any given variety, \\
 	$\overline{p}_{v_{current}}$ = current monthly price average, \\
 	$\overline{p}_{v_{base}}$ = base monthly price average.
 \end{center} 
 
-To ensure that results are comparable and capture only pure price change, ideally would be to collect price data for the same products indefinitely\cite{cpi2}. In reality, this is impractical due to different reasons. Therefore, price data collectors are equipped with a list of strict rules when products or services are no longer available and substitutes are needed. These rules may target product description(producer, weight, composition, etc.) to ensure that qualitative differences between products no longer available on the market and substitute new products are minimal, store placement and local or national market share, or a combination of these\cite{cpi}.
-According to different studies conducted at National Statistical Offices \cite{}.The collection of price data from online sources  
-restrict the number of articles within the same observation point and the same assortment for the exact application 
-of the classical CPI methodology. We used a clustering procedure, meaning that we computed a geometric mean to 
-aggregate the results in the form of a generic article specific to that observation point. For example, if one 
-observation point encounters 3 articles within the same assortment, in another observation point 2 articles 
-within the assortment encountered at the previous point, we apply a geometric mean for the prices of the three 
-articles for the first observation point, the result being a generic article for the first observation point and the 
-same procedure for the second observation point according to the formula:
+To ensure that results are comparable at different periods and capture only pure price change, ideally would be to collect price data for the same products indefinitely\cite{cpi2}. In the real world, this is impractical due to different reasons. Therefore, price data collectors are equipped with a list of strict rules when products or services are no longer available and substitutes are needed. These rules may target product description(producer, weight, composition, etc.), store placement and local/national market share, or a combination of these is used to ensure that qualitative differences between products no longer available on the market and substitutes are minimal \cite{cpi}. According to different research studies on using Big Data to compile CPI conducted inside National Statistical Offices, item survivability in sample is the most common issue in preserving comparable results across longer periods\cite{}. To address this issues an intermediate calculation step was necessary. Based on the optimal supervised classification method, price indices for similar items were clustered into a generic price index for the same statistical unit by using a geometric mean. For example, within the same statistical unit we collected at $t_{0}$ 3 products within the same assortment according to classification method and at $t_{1}$ 2 products within the same assortment, we apply a geometric mean to cluster them into a generic product.   
 
 \begin{equation}\label{eq:3}
-i_{vg} = \sqrt[n]{\prod_{i=1}^{n} i_{v_{n}}}
+i_{g} = \sqrt[n]{\prod_{j=1}^{n} i_{p_{v_{j}}}}
 \end{equation}
 
+\begin{center}
+	$i_{g}$ = elementary price index for a generic product, \\
+	$n$ = number of products within the same assortment based on the classification method, \\
+	$i_{p_{v_{j}}}$ = the $j-th$ elementary price index within the same assortment
+\end{center}
 
-where $i_{vg}$ is the elementary index of the generic article at observation unit level, $n$ is the number of 
-articles within the same assortment and $i_{v_{n}}$ is the elementary price index at the article level. 
-The subsequent calculation steps follow roughly the steps from the classical CPI methodology, noting that in order 
+The subsequent calculations follow roughly the steps from the classical CPI methodology\cite{cpi}, taking into consideration that in order 
 to obtain the price index at the expenditure group level we assigned to each assortment a weight equal to $\frac{1}{n}$,
 where $n$ is the number of assortments identified as belonging to that group and we applied a weighting 
-recalibration procedure to aggregate price indices at expenditure group level using the following formula:
+re-calibration procedure to aggregate price indices at expenditure group level using the following formula:
 
 
 \begin{equation}\label{eq:4}
@@ -378,7 +375,7 @@ initial weights, $pn$ the number of expenditure groups identified after the clas
 and $p$ the initial number of expenditure groups from the classical CPI methodology.
 
 
-The recalibration coefficient was applied to each weight from the classical CPI expenditure groups according to the formula:
+The re-calibration coefficient was applied to each weight from the classical CPI expenditure groups according to the formula:
 
 
 \begin{equation}\label{eq:3}
