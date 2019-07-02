@@ -1,5 +1,7 @@
 \documentclass[]{article}
 \usepackage{graphicx}
+\usepackage{breakurl}
+\usepackage{url}
 %opening
 \title{Web scrapping techniques for price statistics -  the Romanian experience}
 \pagenumbering{arabic}
@@ -211,7 +213,7 @@ section \ref{conclusions} concludes our paper.
 
 Some of the official statistics bureaus that have run similar projects have opted to outsource this component to companies specialized 
 in collecting, processing and storing the data instead of acquiring the data directly. We explored several existing software solutions: 
-Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1}, \cite{rs2} 
+Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1},
 and \cite{rvest}. 
 Based on an analysis of the advantages and disadvantages of each solution we chose to work with the Robot framework. 
 
@@ -483,160 +485,103 @@ online interaction based on reviews of buyers with the respective brands and the
 
 \begin{thebibliography}{99}
 \bibitem{grif2016_1}
-Robert ~Griffioen, R.,Olav ten ~Bosch, and Els ~Hoogteijling, 
-Challenges and solutions to the use of internet data in the Dutch CPI, 
-Workshop on Statistical Data Collection, The Hague, The Netherlands, 3-5 October 2016.
+~Griffioen R, ten ~Bosch RO, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
+Workshop on Statistical Data Collection, The Hague, The Netherlands, 3-5 October 2016. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3\_Netherlands\_-\_Griffioen\_ap.pdf}.
 
 \bibitem{grif2016_2}
-Griffioen, Robert and Ten Bosch, Olav
-On the use of Internet data for the Dutch CPI,
-Conference of European Statisticians, Geneva, 2-4 May, 2016.
+Griffioen R, ten Bosch RO. On the use of Internet data for the Dutch CPI,
+Conference of European Statisticians, Geneva, 2-4 May, 2016. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session\_2\_Netherlands\_on\_the\_use\_of\_internet\_data\_for\_the\_Dutch\_CPI.pdf}.
+
 
 \bibitem{eu2012}
 European Commission,
 Internet as a data source,
 Luxembourg, Publications Office of the European Union, 2012.
 
-
 \bibitem{ons2017}
-Himanshi Bhardwaj, Tanya Flower, Philip Lee and Matthew Mayhew,
-Research indices using web scraped price data: August 2017 update, ONS, UK, 2017.
-
+Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK, 2017. Available from:
+\url{https://www.ons.gov.uk/economy/inflationandpriceindices/articles/researchindicesusingwebscrapedpricedata/august2017update}.
 
 \bibitem{otawa2017}
-Josef Auer and Ingolf Boettcher, 
-From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data,
-Ottawa Group - International Working Group on Price Indices, 2017,
-url={http://www.ottawagroup.org/}.
+Auer J, Boettcher I, From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data.
+Ottawa Group - International Working Group on Price Indices, 2017. Available from: \url{http://www.ottawagroup.org/}.
 
 \bibitem{willenborg2017}
-Leon Willenborg,
-Elementary price indices for internet data,
-Discussion Paper no. 8,
-CBS, The Hague, Nederlands, 2017.
-
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands, 2017. Available from:
+\url{https://www.cbs.nl/-/media/\_pdf/2017/25/elementary price indices.pdf}.
 
 \bibitem{robot2018}
-CBS,
-Robot Framework, 
-2018,
-url={http://research.cbs.nl/Projects/RobotFramework/index.html}.
-
+CBS, Robot Framework, 2018. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
 
 \bibitem{scrapy1}
-Dimitrios Kouzis-Loukas
-Learning Scrapy, Packt, 2016.
+Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018.
 
 \bibitem{scrapy2}
-Daniel Myers and James W. McGuffee,
-Choosing Scrapy,
-Journal of Computing Sciences in Colleges,
-Volume 31, Issue 1, October 2015,
-Pages 83-89.
+Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges; 2015; 31(1):83-89.
 
 \bibitem{nutch}
-The Apache Software Foundation,
-Nutch, A highly extensible, highly scalable Web crawler, 2018,
-url={http://nutch.apache.org/}.
+The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018. Available from:
+\url{http://nutch.apache.org/}.
 
 \bibitem{rvest}
-Hadley Wickham,
-rvest: Easily Harvest (Scrape) Web Pages,
-2016,{R package version 0.3.2},
-url = {https://CRAN.R-project.org/package=rvest}.
-
+Wickham H. rvest: Easily Harvest (Scrape) Web Pages; 2016, {R package version 0.3.2}, Available from:
+\url{https://CRAN.R-project.org/package=rvest}.
 
 \bibitem{cpi}
-INS Romania, Ancheta statistică a preţurilor de consum al populaţiei (in Romanian),
-2017.
+INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); 2017.
 
 \bibitem{cpi2}
-ILO/IMF/OECD/UNECE/Eurostat/The World Bank,
-Consumer price index manual: Theory and practice,
-Geneva, International Labour Office, 2004.
+ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004.
 
 \bibitem{cpi3}
-UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS, 
-Practical Guide to Producing Consumer Price Indices, 
-United Nations, New York and Geneva, 2OO9
+UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS. Practical Guide to Producing Consumer Price Indices. New York and Geneva: United Nations; 2OO9.
 
 
 \bibitem{swier}
-Nigel Swier, 
-How should web scraping be organised for official statistics? 
-61st ISI World Statistics Congress, Marrakech, 2017.
+Swier N. How should web scraping be organised for official statistics? 61st ISI World Statistics Congress, Marrakech; 2017.
 
 
 \bibitem{tranzitivity}
-Leon Willenborg,
-Transitivizing elementary price indices for internet data using the cycle method,
-CBS Discussion Paper, September, 2017,
+Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands, 2017. Available from: \url{https://www.cbs.nl/-/media/{\_}pdf/2017/25/transitivizing elementary price indices.pdf}.
 
 
 \bibitem{rs1}
-John Harrison, 
-RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5, 2019.
-url={https://CRAN.R-project.org/package=RSelenium}
-
-\bibitem{rs2}
-John Harrison,
-RSelenium: R Bindings for 'Selenium WebDriver', 2019
-url={https://CRAN.R-project.org/package=RSelenium}
-
-
+Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5, 2019. Available from :
+\url{https://CRAN.R-project.org/package=RSelenium}.
 
 
 \bibitem{MIT}
-Cavallo, Alberto, Scraped Data and Sticky Prices, 
-MIT Sloan, 
-December 28, 2010.
+Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12;2010.
 
 
 \bibitem{cbs}
-Hoekstra, R., ten Bosch, O. and Harteveld, F., 
-Automated data collection from web sources for official statistics: First experiences. 
-Statistical Journal of the IAOS: Journal of the International Association for Official Statistics 28 (3-4). pp. 99-111
-2012.
+Hoekstra R, ten Bosch RO, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
+Statistical Journal of the IAOS. 2012;28(3-4):99-111.
 
 \bibitem{cbs2}
-Olav ten Bosch, Dick Windmeijer, Arnout van Delden and Guido van den Heuvel,
-Web scrapping meets survey design: combining forces,
-BigSurv Conference, October 25 - 27, Barcelona, Spain,
-2018.
+ten Bosch RO, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
+BigSurv Conference, October 25 - 27, Barcelona, Spain; 2018.
 
 
 \bibitem{polidoro}
-Polidoro F., Giannini R., Lo Conte R., Mosca S., Rossetti F. 
-Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation,
-Statistical Journal of the IAOS 31 pp. 165–176
+Polidoro F, Giannini R, Lo Conte R, Mosca S, Rossetti F. Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation. Statistical Journal of the IAOS. 2015;31(2):165–176.
 2015.
 
 \bibitem{bruner}
-Brunner, K., 
-Automated price collection via the internet, 
-DESTATIS, 2014.
+Brunner K. Automated price collection via the internet. DESTATIS; 2014.
 
 \bibitem{barcoli}
-Barcaroli G., Scannapieco M., Scarno M., Summa D. 
-Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies,
-New Techniques and Technologies for Statistics, Bruxelles, 2015.
+Barcaroli G, Scannapieco M, Scarno M, Summa D. Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies.
+New Techniques and Technologies for Statistics, Bruxelles; 2015.
 
 
 \bibitem{swier2}
-Swier, Nigel, 
-Webscraping for Job Vacancy Statistics, 
-Eurostat Conference on Social Statistics:Towards more agile social statistics, Luxembourg,
-2016
+Swier N. Webscraping for Job Vacancy Statistics. Eurostat Conference on Social Statistics:Towards more agile social statistics. Luxembourg; 2016.
 
 \bibitem{hhs}
-INS Romania, Coordonate ale nivelului de trai in Romania (in Romanian), 2019, page 52.
+INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019.
 
 
-\bibitem{swier2}
-Swier, Nigel, 
-Webscraping for Job Vacancy Statistics, 
-Eurostat Conference on Social Statistics:Towards more agile social statistics, Luxembourg,
-2016
 \end{thebibliography}
 
 \end{document}
