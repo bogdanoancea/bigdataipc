@@ -110,9 +110,13 @@ and legislation on access to online data \cite{swier}.
 
 The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
 in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
-section \ref{conclusions} concludes our paper
+section \ref{conclusions} concludes our paper.
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ba89598135967ac59fe1c56feeccadde4647330
 \section{Data collection}\label{section2}
 
 Some of the official statistics bureaus that have run similar projects have opted to outsource this component to companies specialized 
@@ -141,8 +145,13 @@ specifications), the date collection and the website address. The selection of t
 under observation is based on the CPI national standard classification. We collected about 50,000 to 70,000 records every month.
 
 
-Data collection took place through the Robot Framework and RSelenium software solution. It is worth mentioning that Robot Framework is highly configurable through javascript procedures which can easily manipulate web content. This software solution proved to be a scalable web-scrapping tool that can fulfill the requirements of a 
-large organization. The automatic collection of prices observed on the sites included in the sample was made during
+
+Data collection took place through the Robot Framework and RSelenium software solution. 
+After we evaluated several web scrapping frameworks we started our project using Robot Framework. This software solution is implemented using Javascript language with node.js library.
+The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. The contents of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and an hour.
+Editing the script file involves the use of information available through a development tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can enter content components within the element into the URLs, being more precise. URLs are provided to a set of procedures that serialize the browsing and parsing process on Web sites. It is worth mentioning that the Robot Framework solution has a high degree of configuration through the introduction of technology-specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a large organization.
+
+The automatic collection of prices observed on the sites included in the sample was made during
 the same period as for the traditional CPI survey. Due to the complexity of the data extracted through the 
 web-scrapping process, i.e. of the semi-structured data gathered from the sites, the decomposition at the 
 core components of the CPI classification is required first.
@@ -346,7 +355,7 @@ The process diagram is shown in \ref{fig:1} while in \ref{fig:2} we build a proc
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{fig1.eps}
+\includegraphics[width=0.8\linewidth]{fig1.eps}
 \caption{The process diagram for computing online price index - the green box adds a new phase to the traditional price index methodology}
 \label{fig:1}
 \end{figure}
@@ -354,7 +363,7 @@ The process diagram is shown in \ref{fig:1} while in \ref{fig:2} we build a proc
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{fig2.eps}
+\includegraphics[width=1\linewidth]{fig2.eps}
 \caption{The GSBPM diagram}
 \label{fig:2}
 \end{figure}
@@ -428,50 +437,48 @@ online interaction based on reviews of buyers with the respective brands and the
 
 \begin{thebibliography}{99}
 \bibitem{grif2016_1}
-~Griffioen R, ten ~Bosch RO, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
-Workshop on Statistical Data Collection, The Hague, The Netherlands, 3-5 October 2016. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3\_Netherlands\_-\_Griffioen\_ap.pdf}.
+~Griffioen R, ten ~Bosch O, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
+Workshop on Statistical Data Collection, The Hague, The Netherlands; 2016 [Cited 2019 Jun 27]. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3_Netherlands_-_Griffioen_ap.pdf}.
 
 \bibitem{grif2016_2}
-Griffioen R, ten Bosch RO. On the use of Internet data for the Dutch CPI,
-Conference of European Statisticians, Geneva, 2-4 May, 2016. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session\_2\_Netherlands\_on\_the\_use\_of\_internet\_data\_for\_the\_Dutch\_CPI.pdf}.
+Griffioen R, ten Bosch O. On the use of Internet data for the Dutch CPI,
+Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
 
 
 \bibitem{eu2012}
-European Commission,
-Internet as a data source,
-Luxembourg, Publications Office of the European Union, 2012.
+European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012.
 
 \bibitem{ons2017}
-Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK, 2017. Available from:
+Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK; 2017 [Cited 2019 Jul 1st]. Available from:
 \url{https://www.ons.gov.uk/economy/inflationandpriceindices/articles/researchindicesusingwebscrapedpricedata/august2017update}.
 
 \bibitem{otawa2017}
 Auer J, Boettcher I, From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data.
-Ottawa Group - International Working Group on Price Indices, 2017. Available from: \url{http://www.ottawagroup.org/}.
+Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}.
 
 \bibitem{willenborg2017}
-Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands, 2017. Available from:
-\url{https://www.cbs.nl/-/media/\_pdf/2017/25/elementary price indices.pdf}.
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 15]. Available from:
+\url{https://www.cbs.nl/-/media/_pdf/2017/25/elementary price indices.pdf}.
 
 \bibitem{robot2018}
-CBS, Robot Framework, 2018. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
+CBS. Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
 
 \bibitem{scrapy1}
 Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018.
 
 \bibitem{scrapy2}
-Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges; 2015; 31(1):83-89.
+Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges 2015; 31(1):83-89.
 
 \bibitem{nutch}
-The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018. Available from:
+The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018 [Cited 2019 Jun 12]. Available from:
 \url{http://nutch.apache.org/}.
 
 \bibitem{rvest}
-Wickham H. rvest: Easily Harvest (Scrape) Web Pages; 2016, {R package version 0.3.2}, Available from:
+Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2016 [Cited 2019 Apr 2nd]. Available from:
 \url{https://CRAN.R-project.org/package=rvest}.
 
 \bibitem{cpi}
-INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); 2017.
+INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); Bucharest: National Institute of Statistics; 2017.
 
 \bibitem{cpi2}
 ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004.
@@ -485,24 +492,25 @@ Swier N. How should web scraping be organised for official statistics? 61st ISI 
 
 
 \bibitem{tranzitivity}
-Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands, 2017. Available from: \url{https://www.cbs.nl/-/media/{\_}pdf/2017/25/transitivizing elementary price indices.pdf}.
+Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 1]. 
+Available from: \url{https://www.cbs.nl/-/media/_pdf/2017/25/transitivizing elementary price indices.pdf}.
 
 
 \bibitem{rs1}
-Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5, 2019. Available from :
+Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5; [Cited 2019 Jun 1] 2019. Available from :
 \url{https://CRAN.R-project.org/package=RSelenium}.
 
 
 \bibitem{MIT}
-Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12;2010.
+Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12; 2010.
 
 
 \bibitem{cbs}
-Hoekstra R, ten Bosch RO, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
-Statistical Journal of the IAOS. 2012;28(3-4):99-111.
+Hoekstra R, ten Bosch O, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
+Statistical Journal of the IAOS. 2012; 28(3-4):99-111.
 
 \bibitem{cbs2}
-ten Bosch RO, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
+ten Bosch O, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
 BigSurv Conference, October 25 - 27, Barcelona, Spain; 2018.
 
 
@@ -522,14 +530,14 @@ New Techniques and Technologies for Statistics, Bruxelles; 2015.
 Swier N. Webscraping for Job Vacancy Statistics. Eurostat Conference on Social Statistics:Towards more agile social statistics. Luxembourg; 2016.
 
 \bibitem{hhs}
-INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. Available from:
+INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. [Cited 2019 Jun 1] Available from:
 \url{http://www.insse.ro/cms/sites/default/files/field/publicatii/coordonate_ale_nivelului_de_trai_in_romania_2018_1.pdf}
 
 \bibitem{kints}
 van Kints M, de Haan J, Webster M. Utilising big data and multilateral index methods to produce the Australian CPI: Theory, implementation and empirical results. Statistical Journal of the IAOS. 2019; pre-press
 
 \bibitem{gsbpm}
-UNECE, Generic Statistics Business Process Model; 2014. Available from:
+UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 1] Available from:
 \url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
 
 
