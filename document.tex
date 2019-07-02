@@ -113,101 +113,6 @@ in section \ref{methodology} we provide a description of the methodological appr
 section \ref{conclusions} concludes our paper
 
 
-\maketitle
-
-\begin{abstract}
-Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
-traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
-overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
-benefits from this new data source. There have been several projects around European countries exploring the potential 
-of Web scrapping techniques to enhance the production of the official statisticals, including the classical consumer price index (CPI). 
-In this paper we will describe the experience of NSI Romania regarding the collection of prices from Internet and 
-using these data to compile an experimental consumer price index. The aim of our pilot project was mainly to investigate whether 
-the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
-and which are the methodological challenges that we have to deal with.  
-We developed a chain of software tools that automates the whole process, starting with data collection, transforming the semi-structured 
-data into structured data, going to a data validation procedure and finally to a computation procedure that outputs a price index. 
-We started from the traditional methodology used for CPI and added some new features such as a clustering technique and a 
-distance-based method for matching similar products to take advantage of the specificity of the web-scrapping collection method. 
-The whole process was represented in terms of GSBPM.
-\end{abstract}
-
-\section{Introduction}
-
-Whether we use Internet for doing business, social networking, shopping or education, the quantity of data that 
-we produce in our daily activities has recorded and exponential growth. Together with data produced by machines and sensors, these new and 
-almost real-time large volumes of data that are generated today are commonly called Big Data. The first signs that Big Data sources 
-can generate value and useful insights where given by private companies during the late 90s' but nowadays the European and national 
-statistical systems has also witnessed major transformations because of the challenges raised by the big data sources. 
-
-The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the 
-traditional methodologies but it is rather an iterative and incremental approach in which certain components of the traditional 
-statistical production process are augmented by the Big Data sources inputs and the related processing algorithms 
-\cite{grif2016_1}, \cite{grif2016_2}. Alternatively, big data sources can contribute to the reduction of the response burden 
-or they can be used only to study some economic or social phenomena before designing a statistical survey which may be expensive. 
-
-Speaking in other words, the incorporation of big data sources into the official statistics means maintaining a net competitive advantage and 
-relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to 
-large corporations that are active in the field of information technology \cite{eu2012}.
-
-One of the main big data sources is the Web system that can be considered an immense reservoir of information and this source cannot be neglected
-by official statistics institutes. In order to take advantage of the data publicly available on Web sites some automatic procedure for data collection 
-should be designed first. These procedures are referred to under the term of web-scrapping.
-
-Automatic data collection and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
-from online shops were used to build a consumer price index for some South-American countries. Since this first experiment, several
-statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
-for consumer price index calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
-or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
-although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
-only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
-of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
-No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique 
-proved to be a very useful method in the hand of statisticians.
- 
-
-Under these auspices, the overall objectives of our experimental project were to streamline the statistical production process by 
-lowering the overall production costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
-of modern computing technologies, could create the premises for developing a framework for testing and piloting new methodologies 
-and technologies in a systematic and rigorous manner \cite{ons2017}. 
-
-
-Our project experimented how web-scrapping collection method can be used to compute a new/experimental 
-consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
-selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
-This is not an easy task given that there is no information on the volume of online transactions made by firms, 
-issue found in other projects too \cite{willenborg2017}. The eloquent 
-example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
-trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
-our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
-task of identifying the appropriate means to implement the automated price collection process from e-commerce sites. The criteria 
-used to identify the optimal solutions are expressed in terms of flexibility, ease of use, scalability and cost. An essential task 
-to achieve this goal was to explore other approaches and test the existing solutions. 
-
-
-Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
-Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
-rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
-collection, technology and skills are critical and a continuity plan should be devised if some data sources become unavailable, 
-legislative changes occur during this period, or the technology and skills are outdated by the evolution of the Web architecture. 
-
-
-The next objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
-it with those obtained using the traditional data collection method in order to emphasize the issues related to the difficulties 
-of applying and/or adapting the traditional consumer price index (CPI) methodology \cite{cpi} to the new data sources.  A compromise to 
-ensure a certain degree of comparability is the use of traditional CPI methodology \cite{cpi2}, \cite{cpi3} to estimate price indices, although 
-traditional methodology may be incompatible from some points of view with the new data source. 
-
-
-Last but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between 
-National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics 
-and legislation on access to online data \cite{swier}.
-
-The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
-in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
-section \ref{conclusions} concludes our paper.
-
-
 
 \section{Data collection}\label{section2}
 
@@ -400,7 +305,7 @@ The process diagram is shown in \ref{fig:1} while in \ref{fig:2} we build a proc
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{fig1.eps}
+\includegraphics[width=0.8\linewidth]{fig1.eps}
 \caption{The process diagram for computing online price index - the green box adds a new phase to the traditional price index methodology}
 \label{fig:1}
 \end{figure}
@@ -408,7 +313,7 @@ The process diagram is shown in \ref{fig:1} while in \ref{fig:2} we build a proc
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{fig2.eps}
+\includegraphics[width=1\linewidth]{fig2.eps}
 \caption{The GSBPM diagram}
 \label{fig:2}
 \end{figure}
@@ -483,49 +388,47 @@ online interaction based on reviews of buyers with the respective brands and the
 \begin{thebibliography}{99}
 \bibitem{grif2016_1}
 ~Griffioen R, ten ~Bosch RO, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
-Workshop on Statistical Data Collection, The Hague, The Netherlands, 3-5 October 2016. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3\_Netherlands\_-\_Griffioen\_ap.pdf}.
+Workshop on Statistical Data Collection, The Hague, The Netherlands; 2016 [Cited 2019 Jun 27]. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3_Netherlands_-_Griffioen_ap.pdf}.
 
 \bibitem{grif2016_2}
 Griffioen R, ten Bosch RO. On the use of Internet data for the Dutch CPI,
-Conference of European Statisticians, Geneva, 2-4 May, 2016. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session\_2\_Netherlands\_on\_the\_use\_of\_internet\_data\_for\_the\_Dutch\_CPI.pdf}.
+Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
 
 
 \bibitem{eu2012}
-European Commission,
-Internet as a data source,
-Luxembourg, Publications Office of the European Union, 2012.
+European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012.
 
 \bibitem{ons2017}
-Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK, 2017. Available from:
+Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK; 2017 [Cited 2019 Jul 1st]. Available from:
 \url{https://www.ons.gov.uk/economy/inflationandpriceindices/articles/researchindicesusingwebscrapedpricedata/august2017update}.
 
 \bibitem{otawa2017}
 Auer J, Boettcher I, From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data.
-Ottawa Group - International Working Group on Price Indices, 2017. Available from: \url{http://www.ottawagroup.org/}.
+Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}.
 
 \bibitem{willenborg2017}
-Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands, 2017. Available from:
-\url{https://www.cbs.nl/-/media/\_pdf/2017/25/elementary price indices.pdf}.
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 15]. Available from:
+\url{https://www.cbs.nl/-/media/_pdf/2017/25/elementary price indices.pdf}.
 
 \bibitem{robot2018}
-CBS, Robot Framework, 2018. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
+CBS, Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
 
 \bibitem{scrapy1}
 Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018.
 
 \bibitem{scrapy2}
-Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges; 2015; 31(1):83-89.
+Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges 2015; 31(1):83-89.
 
 \bibitem{nutch}
-The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018. Available from:
+The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018 [Cited 2019 Jun 12]. Available from:
 \url{http://nutch.apache.org/}.
 
 \bibitem{rvest}
-Wickham H. rvest: Easily Harvest (Scrape) Web Pages; 2016, {R package version 0.3.2}, Available from:
+Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2016 [Cited 2019 Apr 2nd]. Available from:
 \url{https://CRAN.R-project.org/package=rvest}.
 
 \bibitem{cpi}
-INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); 2017.
+INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); Bucharest: National Institute of Statistics; 2017.
 
 \bibitem{cpi2}
 ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004.
@@ -539,7 +442,8 @@ Swier N. How should web scraping be organised for official statistics? 61st ISI 
 
 
 \bibitem{tranzitivity}
-Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands, 2017. Available from: \url{https://www.cbs.nl/-/media/{\_}pdf/2017/25/transitivizing elementary price indices.pdf}.
+Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 1]. 
+Available from: \url{https://www.cbs.nl/-/media/_pdf/2017/25/transitivizing elementary price indices.pdf}.
 
 
 \bibitem{rs1}
@@ -548,7 +452,7 @@ Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.
 
 
 \bibitem{MIT}
-Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12;2010.
+Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12; 2010.
 
 
 \bibitem{cbs}
