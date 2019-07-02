@@ -2,7 +2,14 @@
 \usepackage{graphicx}
 %opening
 \title{Web scrapping techniques for price statistics -  the Romanian experience}
-\author{}
+\pagenumbering{arabic}
+
+\author{Bogdan Oancea$^1$ \and Marian Necula$^2$}
+\date{%
+	$^1$National Statistics Institute of Romania, bld. Libertatii no. 16, Bucharest, Romania, email: bogdan.oancea@insse.ro, phone: +40731302173, corresponding author\\%
+	$^2$National Statistics Institute of Romania, bld. Libertatii no. 16, Bucharest, Romania, email: marian.necula@insse.ro\\[2ex]%
+	\today
+}
 
 \begin{document}
 
@@ -13,18 +20,18 @@
 Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
 traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
 overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
-benefits from this new data source. There have been several projects around European countries exploring the potential 
-of Web scrapping techniques to enhance the production of the official statisticals, including the classical consumer price index (CPI). 
-In this paper we will describe the experience of NSI Romania regarding the collection of prices from Internet and 
-using these data to compile an experimental consumer price index. The aim of our pilot project was mainly to investigate whether 
+benefits from this new data source. There have been several projects developed by official statistics agencies to explore the potential 
+of web-scrapping techniques to enhance the current statistical production, including the classical consumer price index (CPI). 
+In this paper we describe the experience of NSI Romania regarding the collection of prices from Internet and 
+using these data to compile an experimental CPI. The aim of our pilot project was to investigate whether 
 the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
 and which are the methodological challenges that we have to deal with.  
-We developed a chain of software tools that automates the whole process, starting with data collection, transforming the semi-structured 
-data into structured data, going to a data validation procedure and finally to a computation procedure that outputs a price index. 
-We started from the traditional methodology used for CPI and added some new features such as a clustering technique and a 
-distance-based method for matching similar products to take advantage of the specificity of the web-scrapping collection method. 
-The whole process was represented in terms of GSBPM.
+We developed a chain of software tools that automates the whole process starting from the traditional methodology used 
+for CPI and adding some new features such as a clustering technique and a 
+distance-based method for matching similar products.
 \end{abstract}
+
+{\bf Keywords:} web scrapping, price statistics, data collection.
 
 \section{Introduction}
 
