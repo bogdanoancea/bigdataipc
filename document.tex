@@ -142,10 +142,12 @@ specifications), the date collection and the website address. The selection of t
 under observation is based on the CPI national standard classification. We collected about 50,000 to 70,000 records every month.
 
 
-Data collection took place through the Robot Framework and RSelenium software solution. It is worth mentioning that Robot Framework
-has a high degree of configurability through the possibility of introducing specific procedures regarding the technology
-behind the sites. This software solution proved to be a scalable web-scrapping tool that can fulfill the requirements of a 
-large organization. The automatic collection of prices observed on the sites included in the sample was made during
+Data collection took place through the Robot Framework and RSelenium software solution. 
+After we evaluated several web scrapping frameworks we started our project using Robot Framework. This software solution is implemented using Javascript language with node.js library.
+The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. The contents of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and an hour.
+Editing the script file involves the use of information available through a development tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can enter content components within the element into the URLs, being more precise. URLs are provided to a set of procedures that serialize the browsing and parsing process on Web sites. It is worth mentioning that the Robot Framework solution has a high degree of configuration through the introduction of technology-specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a large organization.
+
+The automatic collection of prices observed on the sites included in the sample was made during
 the same period as for the traditional CPI survey. Due to the complexity of the data extracted through the 
 web-scrapping process, i.e. of the semi-structured data gathered from the sites, the decomposition at the 
 core components of the CPI classification is required first.
