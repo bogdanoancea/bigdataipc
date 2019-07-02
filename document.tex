@@ -5,100 +5,197 @@
 \author{}
 
 \begin{document}
-	
-	\maketitle
-	
-	\begin{abstract}
-		Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
-		traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
-		overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
-		benefits from this new data source. There have been several projects around European countries exploring the potential 
-		of Web scrapping techniques to enhance the production of the official statisticals, including the classical consumer price index (CPI). 
-		In this paper we will describe the experience of NSI Romania regarding the collection of prices from Internet and 
-		using these data to compile an experimental consumer price index. The aim of our pilot project was mainly to investigate whether 
-		the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
-		and which are the methodological challenges that we have to deal with.  
-		We developed a chain of software tools that automates the whole process, starting with data collection, transforming the semi-structured 
-		data into structured data, going to a data validation procedure and finally to a computation procedure that outputs a price index. 
-		We started from the traditional methodology used for CPI and added some new features such as a clustering technique and a 
-		distance-based method for matching similar products to take advantage of the specificity of the web-scrapping collection method. 
-		The whole process was represented in terms of GSBPM.
-	\end{abstract}
-	
-	\section{Introduction}
-	
-	Whether we use Internet for doing business, social networking, shopping or education, the quantity of data that 
-	we produce in our daily activities has recorded and exponential growth. Together with data produced by machines and sensors, these new and 
-	almost real-time large volumes of data that are generated today are commonly called Big Data. The first signs that Big Data sources 
-	can generate value and useful insights where given by private companies during the late 90s' but nowadays the European and national 
-	statistical systems has also witnessed major transformations because of the challenges raised by the big data sources. 
-	
-	The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the 
-	traditional methodologies but it is rather an iterative and incremental approach in which certain components of the traditional 
-	statistical production process are augmented by the Big Data sources inputs and the related processing algorithms 
-	\cite{grif2016_1}, \cite{grif2016_2}. Alternatively, big data sources can contribute to the reduction of the response burden 
-	or they can be used only to study some economic or social phenomena before designing a statistical survey which may be expensive. 
-	
-	Speaking in other words, the incorporation of big data sources into the official statistics means maintaining a net competitive advantage and 
-	relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to 
-	large corporations that are active in the field of information technology \cite{eu2012}.
-	
-	One of the main big data sources is the Web system that can be considered an immense reservoir of information and this source cannot be neglected
-	by official statistics institutes. In order to take advantage of the data publicly available on Web sites some automatic procedure for data collection 
-	should be designed first. These procedures are referred to under the term of web-scrapping.
-	
-	Automatic data collection and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
-	from online shops were used to build a consumer price index for some South-American countries. Since this first experiment, several
-	statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
-	for consumer price index calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
-	or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
-	although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
-	only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
-	of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
-	No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique 
-	proved to be a very useful method in the hand of statisticians.
-	
-	
-	Under these auspices, the overall objectives of our experimental project were to streamline the statistical production process by 
-	lowering the overall production costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
-	of modern computing technologies, could create the premises for developing a framework for testing and piloting new methodologies 
-	and technologies in a systematic and rigorous manner \cite{ons2017}. 
-	
-	
-	Our project experimented how web-scrapping collection method can be used to compute a new/experimental 
-	consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
-	selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
-	This is not an easy task given that there is no information on the volume of online transactions made by firms, 
-	issue found in other projects too \cite{willenborg2017}. The eloquent 
-	example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
-	trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
-	our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
-	task of identifying the appropriate means to implement the automated price collection process from e-commerce sites. The criteria 
-	used to identify the optimal solutions are expressed in terms of flexibility, ease of use, scalability and cost. An essential task 
-	to achieve this goal was to explore other approaches and test the existing solutions. 
-	
-	
-	Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
-	Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
-	rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
-	collection, technology and skills are critical and a continuity plan should be devised if some data sources become unavailable, 
-	legislative changes occur during this period, or the technology and skills are outdated by the evolution of the Web architecture. 
-	
-	
-	The next objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
-	it with those obtained using the traditional data collection method in order to emphasize the issues related to the difficulties 
-	of applying and/or adapting the traditional consumer price index (CPI) methodology \cite{cpi} to the new data sources.  A compromise to 
-	ensure a certain degree of comparability is the use of traditional CPI methodology \cite{cpi2}, \cite{cpi3} to estimate price indices, although 
-	traditional methodology may be incompatible from some points of view with the new data source. 
-	
-	
-	Last but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between 
-	National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics 
-	and legislation on access to online data \cite{swier}.
-	
-	The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
-	in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
-	section \ref{conclusions} concludes our paper
+
+
+\maketitle
+
+\begin{abstract}
+Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
+traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
+overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
+benefits from this new data source. There have been several projects around European countries exploring the potential 
+of Web scrapping techniques to enhance the production of the official statisticals, including the classical consumer price index (CPI). 
+In this paper we will describe the experience of NSI Romania regarding the collection of prices from Internet and 
+using these data to compile an experimental consumer price index. The aim of our pilot project was mainly to investigate whether 
+the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
+and which are the methodological challenges that we have to deal with.  
+We developed a chain of software tools that automates the whole process, starting with data collection, transforming the semi-structured 
+data into structured data, going to a data validation procedure and finally to a computation procedure that outputs a price index. 
+We started from the traditional methodology used for CPI and added some new features such as a clustering technique and a 
+distance-based method for matching similar products to take advantage of the specificity of the web-scrapping collection method. 
+The whole process was represented in terms of GSBPM.
+\end{abstract}
+
+\section{Introduction}
+
+Whether we use Internet for doing business, social networking, shopping or education, the quantity of data that 
+we produce in our daily activities has recorded and exponential growth. Together with data produced by machines and sensors, these new and 
+almost real-time large volumes of data that are generated today are commonly called Big Data. The first signs that Big Data sources 
+can generate value and useful insights where given by private companies during the late 90s' but nowadays the European and national 
+statistical systems has also witnessed major transformations because of the challenges raised by the big data sources. 
+
+The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the 
+traditional methodologies but it is rather an iterative and incremental approach in which certain components of the traditional 
+statistical production process are augmented by the Big Data sources inputs and the related processing algorithms 
+\cite{grif2016_1}, \cite{grif2016_2}. Alternatively, big data sources can contribute to the reduction of the response burden 
+or they can be used only to study some economic or social phenomena before designing a statistical survey which may be expensive. 
+
+Speaking in other words, the incorporation of big data sources into the official statistics means maintaining a net competitive advantage and 
+relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to 
+large corporations that are active in the field of information technology \cite{eu2012}.
+
+One of the main big data sources is the Web system that can be considered an immense reservoir of information and this source cannot be neglected
+by official statistics institutes. In order to take advantage of the data publicly available on Web sites some automatic procedure for data collection 
+should be designed first. These procedures are referred to under the term of web-scrapping.
+
+Automatic data collection and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
+from online shops were used to build a consumer price index for some South-American countries. Since this first experiment, several
+statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
+for consumer price index calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
+or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
+although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
+only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
+of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
+No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique 
+proved to be a very useful method in the hand of statisticians.
+
+
+Under these auspices, the overall objectives of our experimental project were to streamline the statistical production process by 
+lowering the overall production costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
+of modern computing technologies, could create the premises for developing a framework for testing and piloting new methodologies 
+and technologies in a systematic and rigorous manner \cite{ons2017}. 
+
+
+Our project experimented how web-scrapping collection method can be used to compute a new/experimental 
+consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
+selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
+This is not an easy task given that there is no information on the volume of online transactions made by firms, 
+issue found in other projects too \cite{willenborg2017}. The eloquent 
+example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
+trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
+our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
+task of identifying the appropriate means to implement the automated price collection process from e-commerce sites. The criteria 
+used to identify the optimal solutions are expressed in terms of flexibility, ease of use, scalability and cost. An essential task 
+to achieve this goal was to explore other approaches and test the existing solutions. 
+
+
+Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
+Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
+rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
+collection, technology and skills are critical and a continuity plan should be devised if some data sources become unavailable, 
+legislative changes occur during this period, or the technology and skills are outdated by the evolution of the Web architecture. 
+
+
+The next objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
+it with those obtained using the traditional data collection method in order to emphasize the issues related to the difficulties 
+of applying and/or adapting the traditional consumer price index (CPI) methodology \cite{cpi} to the new data sources.  A compromise to 
+ensure a certain degree of comparability is the use of traditional CPI methodology \cite{cpi2}, \cite{cpi3} to estimate price indices, although 
+traditional methodology may be incompatible from some points of view with the new data source. 
+
+
+Last but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between 
+National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics 
+and legislation on access to online data \cite{swier}.
+
+The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
+in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
+section \ref{conclusions} concludes our paper
+
+
+\maketitle
+
+\begin{abstract}
+Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
+traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
+overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
+benefits from this new data source. There have been several projects around European countries exploring the potential 
+of Web scrapping techniques to enhance the production of the official statisticals, including the classical consumer price index (CPI). 
+In this paper we will describe the experience of NSI Romania regarding the collection of prices from Internet and 
+using these data to compile an experimental consumer price index. The aim of our pilot project was mainly to investigate whether 
+the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
+and which are the methodological challenges that we have to deal with.  
+We developed a chain of software tools that automates the whole process, starting with data collection, transforming the semi-structured 
+data into structured data, going to a data validation procedure and finally to a computation procedure that outputs a price index. 
+We started from the traditional methodology used for CPI and added some new features such as a clustering technique and a 
+distance-based method for matching similar products to take advantage of the specificity of the web-scrapping collection method. 
+The whole process was represented in terms of GSBPM.
+\end{abstract}
+
+\section{Introduction}
+
+Whether we use Internet for doing business, social networking, shopping or education, the quantity of data that 
+we produce in our daily activities has recorded and exponential growth. Together with data produced by machines and sensors, these new and 
+almost real-time large volumes of data that are generated today are commonly called Big Data. The first signs that Big Data sources 
+can generate value and useful insights where given by private companies during the late 90s' but nowadays the European and national 
+statistical systems has also witnessed major transformations because of the challenges raised by the big data sources. 
+
+The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the 
+traditional methodologies but it is rather an iterative and incremental approach in which certain components of the traditional 
+statistical production process are augmented by the Big Data sources inputs and the related processing algorithms 
+\cite{grif2016_1}, \cite{grif2016_2}. Alternatively, big data sources can contribute to the reduction of the response burden 
+or they can be used only to study some economic or social phenomena before designing a statistical survey which may be expensive. 
+
+Speaking in other words, the incorporation of big data sources into the official statistics means maintaining a net competitive advantage and 
+relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to 
+large corporations that are active in the field of information technology \cite{eu2012}.
+
+One of the main big data sources is the Web system that can be considered an immense reservoir of information and this source cannot be neglected
+by official statistics institutes. In order to take advantage of the data publicly available on Web sites some automatic procedure for data collection 
+should be designed first. These procedures are referred to under the term of web-scrapping.
+
+Automatic data collection and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
+from online shops were used to build a consumer price index for some South-American countries. Since this first experiment, several
+statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
+for consumer price index calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
+or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
+although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
+only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
+of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
+No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique 
+proved to be a very useful method in the hand of statisticians.
+ 
+
+Under these auspices, the overall objectives of our experimental project were to streamline the statistical production process by 
+lowering the overall production costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
+of modern computing technologies, could create the premises for developing a framework for testing and piloting new methodologies 
+and technologies in a systematic and rigorous manner \cite{ons2017}. 
+
+
+Our project experimented how web-scrapping collection method can be used to compute a new/experimental 
+consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
+selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
+This is not an easy task given that there is no information on the volume of online transactions made by firms, 
+issue found in other projects too \cite{willenborg2017}. The eloquent 
+example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
+trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
+our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
+task of identifying the appropriate means to implement the automated price collection process from e-commerce sites. The criteria 
+used to identify the optimal solutions are expressed in terms of flexibility, ease of use, scalability and cost. An essential task 
+to achieve this goal was to explore other approaches and test the existing solutions. 
+
+
+Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
+Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
+rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
+collection, technology and skills are critical and a continuity plan should be devised if some data sources become unavailable, 
+legislative changes occur during this period, or the technology and skills are outdated by the evolution of the Web architecture. 
+
+
+The next objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
+it with those obtained using the traditional data collection method in order to emphasize the issues related to the difficulties 
+of applying and/or adapting the traditional consumer price index (CPI) methodology \cite{cpi} to the new data sources.  A compromise to 
+ensure a certain degree of comparability is the use of traditional CPI methodology \cite{cpi2}, \cite{cpi3} to estimate price indices, although 
+traditional methodology may be incompatible from some points of view with the new data source. 
+
+
+Last but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between 
+National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics 
+and legislation on access to online data \cite{swier}.
+
+The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
+in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
+section \ref{conclusions} concludes our paper.
+
 
 
 \section{Data collection}\label{section2}
@@ -476,6 +573,10 @@ url={https://CRAN.R-project.org/package=RSelenium}
 John Harrison,
 RSelenium: R Bindings for 'Selenium WebDriver', 2019
 url={https://CRAN.R-project.org/package=RSelenium}
+
+
+
+
 \bibitem{MIT}
 Cavallo, Alberto, Scraped Data and Sticky Prices, 
 MIT Sloan, 
@@ -494,6 +595,7 @@ Web scrapping meets survey design: combining forces,
 BigSurv Conference, October 25 - 27, Barcelona, Spain,
 2018.
 
+
 \bibitem{polidoro}
 Polidoro F., Giannini R., Lo Conte R., Mosca S., Rossetti F. 
 Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation,
@@ -510,6 +612,7 @@ Barcaroli G., Scannapieco M., Scarno M., Summa D.
 Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies,
 New Techniques and Technologies for Statistics, Bruxelles, 2015.
 
+
 \bibitem{swier2}
 Swier, Nigel, 
 Webscraping for Job Vacancy Statistics, 
@@ -519,6 +622,12 @@ Eurostat Conference on Social Statistics:Towards more agile social statistics, L
 \bibitem{hhs}
 INS Romania, Coordonate ale nivelului de trai în România (in Romanian), 2019, page 52.
 
+
+\bibitem{swier2}
+Swier, Nigel, 
+Webscraping for Job Vacancy Statistics, 
+Eurostat Conference on Social Statistics:Towards more agile social statistics, Luxembourg,
+2016
 \end{thebibliography}
 
 \end{document}
