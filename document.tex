@@ -2,6 +2,8 @@
 \usepackage{graphicx}
 \usepackage{breakurl}
 \usepackage{url}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 %opening
 \title{Web scrapping techniques for price statistics -  the Romanian experience}
 \pagenumbering{arabic}
@@ -21,18 +23,19 @@
 \maketitle
 
 \begin{abstract}
-Internet has been widely recognized as a new data source that can be used to compile new statistics or the enhance the 
-traditional ones in several fields of official statistics. Considering that online commerce has a growing share in the 
-overall household’s consumption, price statistics is one of the areas of official statistics that can have important 
-benefits from this new data source. There have been several projects developed by official statistics agencies to explore the potential 
-of web-scrapping techniques to enhance the current statistical production, including the classical consumer price index (CPI). 
-In this paper we describe the experience of NSI Romania regarding the collection of prices from Internet and 
-using these data to compile an experimental CPI. The aim of our pilot project was to investigate whether 
-the web-scrapping method of data collection for prices can be introduced in the production of official statistics in the near future 
-and which are the methodological challenges that we have to deal with.  
-We developed a chain of software tools that automates the whole process starting from the traditional methodology used 
-for CPI and adding some new features such as a clustering technique and a 
-distance-based method for matching similar products.
+Internet has been widely recognized as a new data source that can be used either to compile new statistics or to enhance the 
+traditional ones in several fields of official statistics. Considering that online commerce has a rapid growing share in the 
+overall household’s consumption expenditures behavior when selecting a distribution/transaction channel, price statistics is 
+one of the research areas in official statistics which benefits greatly from this new data source. Since mid 2000, there have 
+been several projects developed by official statistics national offices in order to explore the potential of collecting data 
+through Internet and to enhance the current statistical production system, including the classical consumer price index (CPI). 
+This paper provides a description of the Romanian National Institute of Statistics experience regarding the use of Internet 
+as a data source and of an exercise in compiling an experimental CPI based on Internet data. The aim the pilot project was to 
+investigate whether alternative data collection methods for price statistics can be introduced and enhance the statistical 
+production system in the near future and, most important, it was a great firsthand opportunity to identify methodological 
+challenges which are inherent. A chain of software tools was developed in order to automate, as much as possible the whole process. 
+The tool chain is built on top of traditional methodology used for CPI, enhanced by new features such as simple clustering 
+technique for treating high volatility present in the collected data using a distance-based method for classification similar products.
 \end{abstract}
 
 {\bf Keywords:} web scrapping, price statistics, data collection.
@@ -81,7 +84,7 @@ Our project experimented how web-scrapping collection method can be used to comp
 consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
 selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
 This is not an easy task given that there is no information on the volume of online transactions made by firms, 
-issue found in other projects too \cite{willenborg2017}. The eloquent 
+issue found in other projects too \cite{willenborg2017}. An eloquent 
 example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
 trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
 our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
@@ -104,27 +107,17 @@ ensure a certain degree of comparability is the use of traditional CPI methodolo
 traditional methodology may be incompatible from some points of view with the new data source. 
 
 
-Last but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between 
-National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics 
-and legislation on access to online data \cite{swier}.
+Last, but not least, we intended to identify the legally sensitive aspects regarding the reconciliation between National Statistical Law, the European Statistics Code of Practice, other regulations on official statistics and legislation on access to online data \cite{swier}.
 
-The paper is structured as follows. In section \ref{section2} we present details of the data collection process, 
-in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and 
-section \ref{conclusions} concludes our paper.
+The paper is structured as follows. In section \ref{section2} we present details of the data collection process, in section \ref{methodology} we provide a description of the methodological approach, in section \ref{results} we present our first results and section \ref{conclusions} concludes our paper.
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ba89598135967ac59fe1c56feeccadde4647330
 \section{Data collection}\label{section2}
-
-Some of the official statistics bureaus that have run similar projects have opted to outsource this component to companies specialized 
-in collecting, processing and storing the data instead of acquiring the data directly. We explored several existing software solutions: 
-Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1},
-and \cite{rvest}. 
-Based on an analysis of the advantages and disadvantages of each solution we chose to work with the Robot framework. 
-
+ 
+Some of the official statistics offices that run similar projects have opted to outsource this component to companies specialized 
+in collecting, processing and storing the data instead of acquiring the data directly. While this minimizes greatly the overhead 
+cost associated with developing and maintaining a large portion of the production pipeline. We explored several existing software solutions: 
+Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1}, and \cite{rvest}. 
 
 The observation unit was the web site of the retail companies. In this case, the assumption from which we started was 
 that the companies cover the entire national territory through their site. Sites selection was based on establishing a 
@@ -134,27 +127,57 @@ hypermarket segment in Romania, does not have a section dedicated to online tran
 5 sites for clothing and 5 sites for footwear products. However, moves made at European level by firms that have physical 
 stores on this segment suggest that market forces will require online migration of the most important players in the field.
 
-The main variable collected from these sites was the price with VAT. The automatic collection method allows us to also 
-record the prices for the goods and services affected by discounts, promotions, or other forms of attracting customers
-through prices, so we can record the old price, and the discount shown as a percentage alongside with the displayed price. 
-This facilitates, for example, the easy identification of seasonality factors that affect the price variation for
-certain categories of goods and services. Prices are recorded in .csv files that contain the following variables: 
-the article/varietal name (the name under which the article is marketed), current retail price, old price and/or 
-retail discount if displayed, composition for clothes/footwear, a short description (manufacturer and technical 
-specifications), the date collection and the website address. The selection of the products whose prices are kept
-under observation is based on the CPI national standard classification. We collected about 50,000 to 70,000 records every month.
+Table \ref{table:2} provides a description of the collected variables. For each item we collected the item name, if provided, 
+a quantitative and qualitative description of the item, current sale price, if provided, price unaffected by discounts or 
+price per standardized quantity, name of the site from which the data was collected and date of collection. Data is stored 
+in comma separated values files. In total, between 50,000 to 70,000 records were collected each month.
 
-
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ c c c p{0.4\linewidth}}
+		\hline
+		 No. Crt. & Variable Name & Type & Definition  \\
+		\hline  
+		1 & \texttt{prod\_name} & string & Records the name of the item as seen on site.\\  \hline
+		2 & \texttt{prod\_des}  & string & Auxiliary information regarding item quantitative and qualitative specifications. \\ \hline
+		3 & \texttt{price}	  	& float  & Price of the item as seen on site.  \\ \hline
+		4 & \texttt{price\_old} & float  & Price unaffected by promotions or price per quantity.\\ \hline
+		5 & \texttt{site}	  	& string & Name of the site. \\ \hline
+		6 & \texttt{date} 	  	& date   & Collection date. \\ 
+		\hline
+	\end{tabular}
+	\caption{Collected variables description}
+	\label{table:2}
+\end{table}
 
 Data collection took place through the Robot Framework and RSelenium software solution. 
 After we evaluated several web scrapping frameworks we started our project using Robot Framework. This software solution is implemented using Javascript language with node.js library.
 The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. The contents of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and an hour.
 Editing the script file involves the use of information available through a development tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can enter content components within the element into the URLs, being more precise. URLs are provided to a set of procedures that serialize the browsing and parsing process on Web sites. It is worth mentioning that the Robot Framework solution has a high degree of configuration through the introduction of technology-specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a large organization.
 
+\begin{algorithm}
+\caption{Algorithm for data download}\label{alg:dl}
+	\begin{algorithmic}[1]
+	
+	\State Read $URL's$	
+	\Procedure{scraper}{$URL's$}
+	\State $ncores \gets \Call{detectCores}$ \Comment{detect the number of cores on the system}
+	\State \Call{createClusters}{$ncores$}
+	\For{each URL}
+	\State \Call{createProcess}
+	\State \Call{visitUrl}{}
+	\If{\Call{isDeadUrl}{URL}}
+	\State  $deadUrl \gets URL$
+	\State \Call{writeResults}{$data$}
+	\EndFor
+	\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
+
+
+
 The automatic collection of prices observed on the sites included in the sample was made during
-the same period as for the traditional CPI survey. Due to the complexity of the data extracted through the 
-web-scrapping process, i.e. of the semi-structured data gathered from the sites, the decomposition at the 
-core components of the CPI classification is required first.
+the same period as for the traditional CPI survey. Due to the noise present in extracted data, decomposition at the core components of the CPI classification is required first.
 
 
 The structure of the data collected from the retailers’ sites for the food group of products contains the product 
@@ -223,7 +246,7 @@ were obtained using the Levenshtein distance.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{| c| c| }
+\begin{tabular}{ c c }
 	\hline
 	Algorithm & Accuracy \\
 	\hline  
@@ -242,12 +265,24 @@ were obtained using the Levenshtein distance.
 
 \section{Some methodological aspects}\label{methodology}
 
-The scope of the project was to asses if online observed prices can be successfully used as a substitute data set for computing, either the traditional CPI or a similar experimental statistics, e.g. online observed CPI. Therefore, in order to retain, as much as possible, comparable results with the traditional CPI, the collection periods within a month, 
-along with the goods and services included in the CPI national classification were preserved. Due to practical limitations regarding the allocated resources for this project, the data collection process was focused on food and beverages and items covering clothing and footwear categories, as these types of goods
-hold the biggest share in household's consumption expenses, e.g. food accounts for nearly 40\% of total expenses\cite{hhs}. 
+The scope of the project was to asses if online observed prices can be successfully
+used as a substitute data set for computing, either the traditional CPI or a similar 
+experimental statistics, e.g. online observed CPI. Therefore, in order to retain, 
+as much as possible, comparable results with the traditional CPI, the collection periods 
+within a month, along with the goods and services included in the CPI national classification 
+were preserved. Due to practical limitations regarding the allocated resources for 
+this project, the data collection process was focused on food and beverages and items 
+covering clothing and footwear categories, as these types of goods hold the biggest share in 
+household's consumption expenses, e.g. food accounts for nearly 40\% of total expenses\cite{hhs}. 
 
-CPI is computed by weighted serial aggregation of elementary price indices at product/variety, assortment and group/category level, the entire process being a combination of traditional procedures\cite{cpi} and intermediate aggregations targeted at product survivability from one period to another. The process is being graphically described by \ref{fig:2}. After data pre-processing, i.e. testing if data is consistent with the computation requirements, removing duplicates, matching products across different periods, the first step requires prices aggregation into an arithmetic 
-monthly average for each item, given that data was collected 3 times per month for food and beverages and once per month for clothes and shoes. 
+CPI is computed by weighted serial aggregation of elementary price indices at item, assortment, 
+category and group level, the entire process being a combination of traditional procedures\cite{cpi} 
+and intermediate aggregations targeted at product survivability from one period to another. 
+The process is being graphically described by \ref{fig:2}. After data pre-processing, i.e. testing 
+if data is consistent with the computation requirements, removing duplicates, matching 
+products across different periods, the first step requires prices aggregation into an arithmetic 
+monthly average for each item, given that data was collected 3 times per month for food and 
+beverages and once per month for clothes and shoes. 
 
 \begin{equation}\label{eq:1}
 \overline{p}_{v} = \frac{\sum_{j=1}^n {p_{v_{j}}}}{n} ,
@@ -308,7 +343,7 @@ i_{c} = \frac{\sum_{j=1}^n i_{a_{j}}}{n}
 	$i_{a_{j}}$ = the $j^{th}$ price index within an assortment
 \end{center}
 
-To obtain indices at group level, e.g. foods, in the last step, we used the weights from CPI methodology in order to aggregate category indices.  The following formula was used:
+To obtain indices at group level, e.g. foods, in the last step, we used COICOP consumption weights from CPI methodology in order to aggregate category indices.  The following formula was used:
 
 
 \begin{equation}\label{eq:6}
@@ -324,7 +359,7 @@ cr_{w_{g}} = \frac{\sum_{j=1}^{n_{c}}{w_{j_{c}}}}{\sum_{j=1}^{n_{b}}{w_{j_{b}}}}
 	
 \end{center}
 
-The re-calibration coefficient was applied to each weight from the classical CPI expenditure groups:
+The re-calibration coefficient is applied to each category weight:
 
 \begin{equation}\label{eq:7}
   w_{r} = w_{g} \times cr_{g}
@@ -350,7 +385,7 @@ The final formula used was:
 	$w_{r_{j}}$ = re-calibrated weight for the $j^{th}$ category
 \end{center}
 
-The process diagram is shown in \ref{fig:1} while in \ref{fig:2} we build a process diagram in terms of GSBPM\cite{gsbpm}. The GSPBM framework was used to attain a small, but highly modular production process. Secondly, the diagram was used a checks-and-balance
+The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we build a process diagram in terms of GSBPM (Generic Statistical Business Process Model)\cite{gsbpm}. The GSPBM framework was used to attain a small, but relatively modular production pipeline, as a monitoring and integration tool and, also, as a checklist in producing some preliminary results. Starting with some basic objectives, we tried to identify critical points in the production pipeline and provide flexible definitions for a set of activities flagged as important. While not present in the diagram, the entire workflow chain contains feedback loops between each state and on the state itself, in order to build incremental improvements taking into consideration the allocated resources. Depending on future needs, the entire pipeline can be subjected to re-engineering.      
 
 
 \begin{figure}
@@ -443,7 +478,6 @@ Workshop on Statistical Data Collection, The Hague, The Netherlands; 2016 [Cited
 \bibitem{grif2016_2}
 Griffioen R, ten Bosch O. On the use of Internet data for the Dutch CPI,
 Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
-
 
 \bibitem{eu2012}
 European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012.
@@ -539,6 +573,13 @@ van Kints M, de Haan J, Webster M. Utilising big data and multilateral index met
 \bibitem{gsbpm}
 UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 1] Available from:
 \url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
+
+\bibitem{dopar}
+Calaway R, Microsoft Corp., Weston S, Tenenbaum D. doParallel: Foreach Parallel Adaptor for the 'parallel' Package {R package version 1.0.14} ; 2018. [Cited 2019 Jun 1] Available from: \url{https://cran.r-project.org/web/packages/doParallel/index.html}
+
+\bibitem{foreach}
+Calaway R, Microsoft Corp., Weston S. foreach: Provides Foreach Looping Construct for R {R package version 1.4.4}; 2017. [Cited 2019 Jun 1]
+Available from: \url{https://cran.r-project.org/web/packages/foreach/index.html}  
 
 
 \end{thebibliography}
