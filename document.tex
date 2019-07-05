@@ -171,14 +171,14 @@ Editing the script file involves the use of information available through a deve
 		\For{each $URL$}
 		 \State Start $node$
 		 \Procedure{Recursion}{$URL$}
-		 	\State Visit URL
 		 		\If{$URL$ is dead}
-		 			\State\Return{$1$}
+		 			\State\Return
 		 		\Else
-		 			\State Parse $page$
-		 			\State Read $links$
-		 			\State Extract $text$
-		 			\State \Return \textsc{Recursion}{($URL-1$)}
+		 			\State Visit URL
+		 			\State $text \gets get\_html[URL]$
+		 			\State $URL  \gets get\_url[text]$
+		 			\State $Data \gets get\_content[text]$
+		 			\State \Return \textsc{Recursion}{($URL$)}
 		 		\EndIf
 			\State Write $Data$
 			\EndProcedure
