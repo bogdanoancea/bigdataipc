@@ -2,8 +2,7 @@
 \usepackage{graphicx}
 \usepackage{breakurl}
 \usepackage{url}
-\usepackage{algorithm}
-\usepackage{algorithmicx}
+\usepackage{algorithm,algpseudocode}
 %opening
 \title{Web scrapping techniques for price statistics -  the Romanian experience}
 \pagenumbering{arabic}
@@ -162,24 +161,25 @@ Editing the script file involves the use of information available through a deve
 	\caption{Algorithm for data collection}
 	\label{alg:dc}
 	\begin{algorithmic}
-		\STATE Read $URL's$
-		\STATE Detect cores
-		\STATE Allocate Cluster
-		\FOR{each $URL$}
-		 \STATE Start $node$
-		 \PROCEDURE{Recursion}{$URL$}
-		 	\STATE Visit URL
-		 		\IF{$URL$ is dead}
-		 			\STATE\RETURN{$1$}
-		 		\ELSE
-		 			\STATE Parse $page$
-		 			\STATE Read $links$
-		 			\STATE Extract $text$
-		 			\STATE\RETURN{Recursion}{$URL$-1}
-		 		\ENDIF
-				\STATE Write $Data$
-			\STATE Stop $node$
-		\ENDFOR		
+		\State Read $URL's$
+		\State Detect cores
+		\State Allocate Cluster
+		\For{each $URL$}
+		 \State Start $node$
+		 \Procedure{Recursion}{$URL$}
+		 	\State Visit URL
+		 		\If{$URL$ is dead}
+		 			\State\Return{$1$}
+		 		\Else
+		 			\State Parse $page$
+		 			\State Read $links$
+		 			\State Extract $text$
+		 			\State \Return \textsc{Recursion}{($URL-1$)}
+		 		\EndIf
+			\State Write $Data$
+			\EndProcedure
+		  \State Stop $node$
+		\EndFor	
 	\end{algorithmic}
 \end{algorithm}
 
