@@ -28,7 +28,7 @@ traditional ones in several fields of official statistics. Considering that onli
 overall household’s consumption expenditures behavior when selecting a distribution/transaction channel, price statistics is 
 one of the research areas in official statistics which benefits greatly from this new data source. 
 This paper provides a description of the Romanian National Institute of Statistics experience regarding the use of Internet 
-as a data source and of an exercise in compiling an experimental consumer price index (CPI) based on Internet data. The aim the pilot project was to 
+as a data source and of an exercise in compiling an experimental consumer price index (CPI) based on Internet data. Aim the pilot project was to 
 investigate whether alternative data collection methods for price statistics can be introduced and enhance the statistical 
 production system in the near future and, most important, it was a great firsthand opportunity to identify methodological 
 challenges which are inherent.  The tool chain is built on top of traditional methodology used for CPI, enhanced by new features such as simple clustering 
@@ -42,7 +42,7 @@ technique for treating high volatility present in the collected data using a dis
  
 \section{Introduction}
 
-For the past 30 years, the world has witnessed a new kind of fundamental structural change, which resembles, in terms of magnitude and impact, with the Industrial Revolution, as data production and usage was actively embedded in the very fabric of society. Data pervasiveness in every human and/or non-human activity was made possible by the advent of new technologies such as the Internet and World Wide Web. This created an exponential increase in data generation, coined under the term Big Data. In 2013, at the DGINS conference in Scheveningen, The Netherlands, the European Statistical System  Committee (ESSC) agreed upon the strategical importance of Big Data and set the stage for future plans on integrating Big Data into the official statistics production system \cite{mschv}. ESS Task Force Big Data was created and entrusted to setup a Big Data strategy and implementation framework. Along with other partners, the Big Data Action Plan and Roadmap 1.0. was elaborated as a planning and monitoring tool, providing descriptions of the necessary steps that should be undertaken by ESS and NSI's for an optimal response to this new challenge on short, medium and long-term. The ESSnet on Big Data, the collaborative research network of ESS, was tasked with piloting research projects \cite{awirth_1} to asses what are the necessary capabilities, such as new methodological approaches \cite{fricc}, new skills and new IT technologies, and also to design them. In 2017, The Romanian National Institute of Statistics started an internal project to asses the potential of data collection methods from the World Wide Web with some preliminary results being presented at the DGINS 2018 Bucharest Conference \cite{oancea}. Bucharest Memorandum \cite{mbch} explicitly expressed that new data sources, new IT technologies and new expertise will be at the core of Trusted Smart Statistics initiative \cite{ricwirskagiarei, awirth_2}, an Eurostat and ESS joint effort to incorporate Big Data sources into the statistical production system at ESS level.
+For the past 30 years, the world has witnessed a new kind of fundamental structural change, which resembles, in terms of magnitude and impact, with the Industrial Revolution, as data production and usage was actively embedded in the very fabric of society. Data pervasiveness in every human and/or non-human activity was made possible by the advent of new technologies such as the Internet and World Wide Web. This created an exponential increase in data generation, coined under the term Big Data. In 2013, at the DGINS conference in Scheveningen, The Netherlands, the European Statistical System  Committee (ESSC) agreed upon the strategical importance of Big Data and set the stage for future plans on integrating Big Data into the official statistics production system \cite{mschv}. ESS Task Force Big Data was created and entrusted to setup a Big Data strategy and implementation framework. Along with other partners, the Big Data Action Plan and Roadmap 1.0. was elaborated as a planning and monitoring tool, providing descriptions of the necessary steps that should be undertaken by ESS and NSI's for an optimal response to this new challenge on short, medium and long-term \cite{bdar}. The ESSnet on Big Data, the collaborative research network of ESS, was tasked with piloting research projects \cite{awirth_1} to asses what are the necessary capabilities, such as new methodological approaches \cite{fricc}, new skills and new IT technologies, and also to design them. In 2017, The Romanian National Institute of Statistics started an internal project to asses the potential of data collection methods from the World Wide Web with some preliminary results being presented at the DGINS 2018 Bucharest Conference \cite{oancea}. Bucharest Memorandum \cite{mbch} explicitly expressed that new data sources, new IT technologies and new expertise will be at the core of Trusted Smart Statistics initiative \cite{ricwirskagiarei, awirth_2}, an Eurostat and ESS joint effort to incorporate Big Data sources into the statistical production system at ESS level.
 
 The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the traditional methodologies, but it is rather an iterative and incremental approach in which certain components of the traditional statistical production process are enhanced by the Big Data sources inputs and the related processing algorithms \cite{grif2016_1}, \cite{grif2016_2}. Alternatively, Big Data sources can contribute to the reduction of the response burden or they can be used only to study some economic or social phenomena before designing a statistical survey which are inherently expensive to pilot. Also, incorporating Big Data sources into official statistics means maintaining a net competitive advantage and relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to large corporations that are active in the field of information technology \cite{eu2012}.
 
@@ -58,12 +58,11 @@ or Destatis \cite{bruner} as some of the first statistical offices in Europe tha
 although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
 only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
 of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
-No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique 
-proved to be a very useful method in the hand of statisticians.
+No matter how it was used, for bulk scrapping of all prices, or for only specific prices in certain areas \cite{cbs2} the web-scrapping technique proved to be a very useful method in the hand of statisticians.
 
 
-Under these auspices, the overall objectives of our experimental project were to streamline the statistical production process by 
-lowering the overall production costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
+Under these circumstances, the overall objectives of our experimental project were to streamline the statistical production process by 
+lowering the overall productions costs, reduce the response burden and the dissemination term. Such projects, through the incorporation 
 of modern computing technologies, could create the premises for developing a framework for testing and piloting new methodologies 
 and technologies in a systematic and rigorous manner \cite{ons2017}. 
 
@@ -142,7 +141,7 @@ After we evaluated several web scrapping frameworks we started our project using
 The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. Content of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and a few hours.
 Editing the script file involves the use of information available through a web developer tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can point to text content components within the element. Extracted page URLs are provided to a set of procedures that serialize navigation process on Web sites. It is worth mentioning that the Robot Framework solution is highly configurable, through the introduction of Javascript specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a medium sized project. The major downside of Robot Framework is that currently, from what we are aware is not under active developement.
 
-RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium automation web browser testing framework. RSelenium provides basic methods for passing synchronous/asynchronous messages and parsing responses to and from a web browser. A net advantage of using RSelenium consists in how easy is to integrate into the R ecosystem, substantially improving the maintainability aspects of the whole process. For example, creating scripts that can access web sites/web pages in parallel \cite{dopar}\cite{foreach} is very easy to implement and maintain, by comparison with other web scraping solutions, saving countless hours in the data collection process. A basic work pipeline consists in allocating computational power for a parallel cluster, starting a Selenium server instance, starting multiple web browser instances, navigating and collecting data, closing the web browsers, the server and the nodes after each successful session or saving the browser state as a message in case of exception.   
+RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium automation web browser testing framework. RSelenium provides basic methods for passing synchronous/asynchronous messages and parsing responses to and from a web browser. A net advantage of using RSelenium consists in how easy is to integrate into the R ecosystem, substantially improving the maintainability aspects of the whole process. For example, creating scripts that can access web sites/web pages in parallel \cite{dopar}\cite{foreach} is very easy to implement and maintain, by comparison with other web scraping solutions, saving countless hours in the data collection process. A basic work pipeline consists in allocating computational power for a parallel cluster, starting a Selenium server instance, starting multiple web browser instances, navigating and collecting data, closing the web browsers, the server and the nodes after each successful session or saving the browser state as a message in case of exception, as presented by algorithm \ref{alg:dc}.   
 
 \begin{algorithm}[h]
 	\caption{Algorithm for data collection}
@@ -219,7 +218,7 @@ basic transformations are again performed using an automated R script, before cl
 to the CPI classification. We started with the manual product linking and classification according to the standard CPI 
 classification which implies identifying the observations which contain a description similar to the one provided in the
 classical CPI classification. This activity can generate errors whose propagation can significantly influence the quality 
-of the results. The principle that we used in the absence of a previous experience in working with methodological aspects 
+of results. The principle that we used in the absence of a previous experience in working with methodological aspects 
 for product selection was to assume that the consumer will choose a product or products substitutable to the one present 
 in the standard classification within a reasonable price limit ($<= 150\%$ of the price of an article from the standard classification). 
 
@@ -461,16 +460,80 @@ online interaction based on buyers reviews with the respective brands and the on
 
 
 \begin{thebibliography}{99}
+	
+
+\bibitem{mschv}
+European Statistical System Committee, Scheveningen Memorandum Big Data and Official Statistics, 2013. [Cited 2019 Jun 1]
+Available from: \url{https://ec.europa.eu/eurostat/documents/42577/43315/Scheveningen-memorandum-27-09-13}
+
+\bibitem{bdar}
+Eurostat Task Force on Big Data, Big Data Action Plan and Roadmap 1.0, 2014. [Cited 2019 Jun 18]
+Available from:
+\url{https://ec.europa.eu/eurostat/cros/system/files/ESSC%20doc%2022_8_2014_EN_Final%20with%20ESSC%20opinion.pdf} 
+	
+\bibitem{awirth_1}
+Wirthmann, A Big Data im Europäischen Statistischen System, AStA Wirtschafts- und Sozialstatistisches Archiv, 10, 2016; [Cited 2019 Jun 18]
+Available from:
+\url{https://link.springer.com/article/10.1007/s11943-016-0195-z}
+
+\bibitem{fricc}
+Ricciato, F Towards a Reference Methodological Framework forprocessing MNO data for Official Statistics, 15th Global Forum on Tourism Statistics, Cusco, Peru, 2018; [Cited 2019 Jun 18]
+Available from:
+\url{http://www.15th-tourism-stats-forum.com/pdf/Papers/S3/3_1_A_Reference_Methodological_Framework_for_processing_mobile_network_operatordata_for_official_statistics.pdf}
+
+\bibitem{oancea}
+Oancea, B Using Web scrapping techniques for price statistics -the Romanian experience, DGINS Conference, Bucharest, Romania, 2018; [Cited 2019 Jun 17]
+Available from:
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/05-RO-Using-Web-scrapping-techniques-for-price-statistics.pdf} 
+
+\bibitem{mbch}
+European Statistical System Committee,  Bucharest Memorandum on Official Statistics in a Datafied Society (Trusted Smart Statistics), 2018. [Cited 2019 Jun 17]
+Available from: \url{http://www.dgins2018.ro/wp-content/uploads/2018/10/The-Bucharest-Memorandum-on-Trusted-Smart-Statistics-FINAL-1.pdf}
+
+\bibitem{ricwirskagiarei}
+Ricciato, F Skaliotis, M Wirthmann, A Giannakouris, K Reis, F Towards a Reference Architecture for Trusted Smart Statistics, DGINS Conference, Bucharest, Romania, 2018; [Cited 2019 Jun 17]
+Available from:
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/07-ES-RO-mobile_network_datav3.pdf}
+
+\bibitem{awirth_2}
+Wirthmann, A Trusted Smart Statistics: A reflection on the future of (Official) Statistics, European Conference on Quality in Official Statistics, Krakow, Poland 2018; [Cited Jun 17]
+Available from:
+\url{https://www.q2018.pl/session-27/}
+
 \bibitem{grif2016_1}
 ~Griffioen R, ten ~Bosch O, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
 Workshop on Statistical Data Collection, The Hague, The Netherlands; 2016 [Cited 2019 Jun 27]. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3_Netherlands_-_Griffioen_ap.pdf}.
 
 \bibitem{grif2016_2}
 Griffioen R, ten Bosch O. On the use of Internet data for the Dutch CPI,
-Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
+Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Available from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
 
 \bibitem{eu2012}
-European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012.
+European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012. [Cited 2019 Jun 1]
+
+\bibitem{MIT}
+Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12; 2010. [Cited 2019 Jun 1]
+
+\bibitem{cbs}
+Hoekstra R, ten Bosch O, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
+Statistical Journal of the IAOS. 2012; 28(3-4):99-111. [Cited 2019 Jun 1]
+
+\bibitem{polidoro}
+Polidoro F, Giannini R, Lo Conte R, Mosca S, Rossetti F. Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation. Statistical Journal of the IAOS. 2015;31(2):165–176. [Cited 2019 Jun 1]
+
+\bibitem{bruner}
+Brunner K. Automated price collection via the internet. DESTATIS; 2014. [Cited 2019 Jun 2]
+
+\bibitem{barcoli}
+Barcaroli G, Scannapieco M, Scarno M, Summa D. Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies.
+New Techniques and Technologies for Statistics, Bruxelles; 2015. [Cited 2019 Jun 2]
+
+\bibitem{swier2}
+Swier N. Webscraping for Job Vacancy Statistics. Eurostat Conference on Social Statistics:Towards more agile social statistics. Luxembourg; 2016. [Cited 2019 Jun 2]
+
+\bibitem{cbs2}
+ten Bosch O, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
+BigSurv Conference, October 25 - 27, Barcelona, Spain; 2018. [Cited 2019 Jun 2]
 
 \bibitem{ons2017}
 Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK; 2017 [Cited 2019 Jul 1st]. Available from:
@@ -478,136 +541,59 @@ Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price 
 
 \bibitem{otawa2017}
 Auer J, Boettcher I, From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data.
-Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}.
+Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}
 
 \bibitem{willenborg2017}
-Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 15]. Available from:
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 18]. Available from:
 \url{https://www.cbs.nl/-/media/_pdf/2017/25/elementary price indices.pdf}.
 
-\bibitem{robot2018}
-CBS. Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
-
-\bibitem{scrapy1}
-Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018.
-
-\bibitem{scrapy2}
-Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges 2015; 31(1):83-89.
-
-\bibitem{nutch}
-The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018 [Cited 2019 Jun 12]. Available from:
-\url{http://nutch.apache.org/}.
-
-\bibitem{rvest}
-Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2016 [Cited 2019 Apr 2nd]. Available from:
-\url{https://CRAN.R-project.org/package=rvest}.
-
 \bibitem{cpi}
-INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); Bucharest: National Institute of Statistics; 2017.
+INS Romania. Ancheta statistică a preţurilor de consum al populaţiei (in Romanian); Bucharest: National Institute of Statistics; 2017. [Cited 2019 Jun 19]
 
 \bibitem{cpi2}
-ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004.
+ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004. [Cited 2019 Jun 19]
 
 \bibitem{cpi3}
-UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS. Practical Guide to Producing Consumer Price Indices. New York and Geneva: United Nations; 2OO9.
+UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS. Practical Guide to Producing Consumer Price Indices. New York and Geneva: United Nations; 2OO9. [Cited 2019 Jun 19]
 
+\bibitem{robot2018}
+CBS. Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}. [Cited 2019 Jun 20]
 
-\bibitem{swier}
-Swier N. How should web scraping be organised for official statistics? 61st ISI World Statistics Congress, Marrakech; 2017.
+\bibitem{scrapy1}
+Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018. [Cited 2019 Jun 20]
 
+\bibitem{scrapy2}
+Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges 2015; 31(1):83-89. [Cited 2019 Jun 20]
 
-\bibitem{tranzitivity}
-Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 1]. 
-Available from: \url{https://www.cbs.nl/-/media/_pdf/2017/25/transitivizing elementary price indices.pdf}.
-
+\bibitem{nutch}
+The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018 [Cited 2019 Jun 20]. Available from:
+\url{http://nutch.apache.org/}.
 
 \bibitem{rs1}
-Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5; [Cited 2019 Jun 1] 2019. Available from :
+Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5; [Cited 2019 Jun 20] 2019. Available from :
 \url{https://CRAN.R-project.org/package=RSelenium}.
 
-
-\bibitem{MIT}
-Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12; 2010.
-
-
-\bibitem{cbs}
-Hoekstra R, ten Bosch O, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
-Statistical Journal of the IAOS. 2012; 28(3-4):99-111.
-
-\bibitem{cbs2}
-ten Bosch O, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
-BigSurv Conference, October 25 - 27, Barcelona, Spain; 2018.
-
-
-\bibitem{polidoro}
-Polidoro F, Giannini R, Lo Conte R, Mosca S, Rossetti F. Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation. Statistical Journal of the IAOS. 2015;31(2):165–176.
-2015.
-
-\bibitem{bruner}
-Brunner K. Automated price collection via the internet. DESTATIS; 2014.
-
-\bibitem{barcoli}
-Barcaroli G, Scannapieco M, Scarno M, Summa D. Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies.
-New Techniques and Technologies for Statistics, Bruxelles; 2015.
-
-
-\bibitem{swier2}
-Swier N. Webscraping for Job Vacancy Statistics. Eurostat Conference on Social Statistics:Towards more agile social statistics. Luxembourg; 2016.
-
-\bibitem{hhs}
-INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. [Cited 2019 Jun 1] Available from:
-\url{http://www.insse.ro/cms/sites/default/files/field/publicatii/coordonate_ale_nivelului_de_trai_in_romania_2018_1.pdf}
-
-\bibitem{kints}
-van Kints M, de Haan J, Webster M. Utilising big data and multilateral index methods to produce the Australian CPI: Theory, implementation and empirical results. Statistical Journal of the IAOS. 2019; pre-press
-
-\bibitem{gsbpm}
-UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 1] Available from:
-\url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
+\bibitem{rvest}
+Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2016 [Cited 2019 Jun 20]. Available from:
+\url{https://CRAN.R-project.org/package=rvest}.
 
 \bibitem{dopar}
-Calaway R, Microsoft Corp., Weston S, Tenenbaum D. doParallel: Foreach Parallel Adaptor for the 'parallel' Package {R package version 1.0.14} ; 2018. [Cited 2019 Jun 1] Available from: \url{https://cran.r-project.org/web/packages/doParallel/index.html}
+Calaway R, Microsoft Corp., Weston S, Tenenbaum D. doParallel: Foreach Parallel Adaptor for the 'parallel' Package {R package version 1.0.14} ; 2018. [Cited 2019 Jun 20] Available from: \url{https://cran.r-project.org/web/packages/doParallel/index.html}
 
-\bibitem{foreach}
-Calaway R, Microsoft Corp., Weston S. foreach: Provides Foreach Looping Construct for R {R package version 1.4.4}; 2017. [Cited 2019 Jun 1]
-Available from: \url{https://cran.r-project.org/web/packages/foreach/index.html}  
+\bibitem{hhs}
+INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. [Cited 2019 Jun 21] Available from:
+\url{http://www.insse.ro/cms/sites/default/files/field/publicatii/coordonate_ale_nivelului_de_trai_in_romania_2018_1.pdf}
 
-\bibitem{mschv}
-European Statistical System Committee, Scheveningen Memorandum Big Data and Official Statistics, 2013. [Cited 2019 Jun 1]
-Available from: \url{https://ec.europa.eu/eurostat/documents/42577/43315/Scheveningen-memorandum-27-09-13}
+\bibitem{tranzitivity}
+Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 18]. 
+Available from: \url{https://www.cbs.nl/-/media/_pdf/2017/25/transitivizing elementary price indices.pdf}.
 
-\bibitem{mbch}
-European Statistical System Committee,  Bucharest Memorandum on Official Statistics in a Datafied Society (Trusted Smart Statistics), 2018. [Cited 2019 Jun 1]
-Available from: \url{http://www.dgins2018.ro/wp-content/uploads/2018/10/The-Bucharest-Memorandum-on-Trusted-Smart-Statistics-FINAL-1.pdf}
+\bibitem{kints}
+van Kints M, de Haan J, Webster M. Utilising big data and multilateral index methods to produce the Australian CPI: Theory, implementation and empirical results. Statistical Journal of the IAOS. 2019; pre-press [Cited 2019 Jun 18]
 
-\bibitem{bdar}
-Eurostat Task Force on Big Data, Big Data Action Plan and Roadmap 1.0, 2014. [Cited 2019 Jun 1]
-Available from:
-\url{https://ec.europa.eu/eurostat/cros/system/files/ESSC%20doc%2022_8_2014_EN_Final%20with%20ESSC%20opinion.pdf} 
-
-\bibitem{awirth_1}
-Wirthmann, A Big Data im Europäischen Statistischen System, AStA Wirtschafts- und Sozialstatistisches Archiv, 10, 2016; [Cited Jun 1]
-Available from:
-\url{https://link.springer.com/article/10.1007/s11943-016-0195-z}
-
-\bibitem{awirth_2}
-Wirthmann, A Trusted Smart Statistics: A reflection on the future of (Official) Statistics, European Conference on Quality in Official Statistics, Krakow, Poland 2018; [Cited Jun 1]
-Available from:
-\url{https://www.q2018.pl/session-27/}
-
-\bibitem{fricc}
-Ricciato, F Towards a Reference Methodological Framework forprocessing MNO data for Official Statistics, 15th Global Forum on Tourism Statistics, Cusco, Peru, 2018; [Cited Jun 1]
-Available from:
-\url{http://www.15th-tourism-stats-forum.com/pdf/Papers/S3/3_1_A_Reference_Methodological_Framework_for_processing_mobile_network_operatordata_for_official_statistics.pdf}
-
-\bibitem{oancea}
-Oancea, B Using Web scrapping techniques for price statistics -the Romanian experience, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
-Available from:
-\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/05-RO-Using-Web-scrapping-techniques-for-price-statistics.pdf} 
-
-\bibitem{ricwirskagiarei}
-Ricciato, F Skaliotis, M Wirthmann, A Giannakouris, K Reis, F Towards a Reference Architecture for Trusted Smart Statistics, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
-Available from:
-\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/07-ES-RO-mobile_network_datav3.pdf}
+\bibitem{gsbpm}
+UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 21] Available from:
+\url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
 
 \end{thebibliography}
 

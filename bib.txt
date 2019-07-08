@@ -1,0 +1,154 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
+\bibitem{grif2016_1}
+~Griffioen R, ten ~Bosch O, ~Hoogteijling E. Challenges and solutions to the use of internet data in the Dutch CPI. 
+Workshop on Statistical Data Collection, The Hague, The Netherlands; 2016 [Cited 2019 Jun 27]. Available from: \url{https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.44/2016/mtg1/WP2-3_Netherlands_-_Griffioen_ap.pdf}.
+
+\bibitem{grif2016_2}
+Griffioen R, ten Bosch O. On the use of Internet data for the Dutch CPI,
+Conference of European Statisticians, Geneva, 2-4 May; 2016 [Cited 2019 Jun 24]. Availbale from : \url{http://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_2_Netherlands_on_the_use_of_internet_data_for_the_Dutch_CPI.pdf}.
+
+\bibitem{eu2012}
+European Commission. Internet as a data source. Luxembourg: Publications Office of the European Union; 2012.
+
+\bibitem{ons2017}
+Bhardwaj H, Flower T, Lee P, Mayhew M. Research indices using web scraped price data: August 2017 update, ONS, UK; 2017 [Cited 2019 Jul 1st]. Available from:
+\url{https://www.ons.gov.uk/economy/inflationandpriceindices/articles/researchindicesusingwebscrapedpricedata/august2017update}.
+
+\bibitem{otawa2017}
+Auer J, Boettcher I, From price collection to price data analytics. How new large data sources require price statisticians to re-think their index compilation procedures. Experiences from web-scraped and scanner data.
+Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}.
+
+\bibitem{willenborg2017}
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 15]. Available from:
+\url{https://www.cbs.nl/-/media/_pdf/2017/25/elementary price indices.pdf}.
+
+\bibitem{robot2018}
+CBS. Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}.
+
+\bibitem{scrapy1}
+Kouzis-Loukas D. Learning Scrapy - Second Edition, Packt Publishing; 2018.
+
+\bibitem{scrapy2}
+Myers D, McGuffee JW. Choosing Scrapy. Journal of Computing Sciences in Colleges 2015; 31(1):83-89.
+
+\bibitem{nutch}
+The Apache Software Foundation. Nutch, a highly extensible, highly scalable Web crawler; 2018 [Cited 2019 Jun 12]. Available from:
+\url{http://nutch.apache.org/}.
+
+\bibitem{rvest}
+Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2016 [Cited 2019 Apr 2nd]. Available from:
+\url{https://CRAN.R-project.org/package=rvest}.
+
+\bibitem{cpi}
+INS Romania. Ancheta statistica a preturilor de consum al populatiei (in Romanian); Bucharest: National Institute of Statistics; 2017.
+
+\bibitem{cpi2}
+ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory and practice. Geneva: International Labour Office; 2004.
+
+\bibitem{cpi3}
+UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS. Practical Guide to Producing Consumer Price Indices. New York and Geneva: United Nations; 2OO9.
+
+
+\bibitem{swier}
+Swier N. How should web scraping be organised for official statistics? 61st ISI World Statistics Congress, Marrakech; 2017.
+
+
+\bibitem{tranzitivity}
+Willenborg L. Transitivizing elementary price indices for internet data using the cycle method. Discussion Paper, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 1]. 
+Available from: \url{https://www.cbs.nl/-/media/_pdf/2017/25/transitivizing elementary price indices.pdf}.
+
+
+\bibitem{rs1}
+Harrison J. RSelenium: R Bindings for 'Selenium WebDriver'. R package version 1.7.5; [Cited 2019 Jun 1] 2019. Available from :
+\url{https://CRAN.R-project.org/package=RSelenium}.
+
+
+\bibitem{MIT}
+Cavallo A. Scraped Data and Sticky Prices. MIT Sloan Research Paper No. 4976-12; 2010.
+
+
+\bibitem{cbs}
+Hoekstra R, ten Bosch O, Harteveld F. Automated data collection from web sources for official statistics: First experiences. 
+Statistical Journal of the IAOS. 2012; 28(3-4):99-111.
+
+\bibitem{cbs2}
+ten Bosch O, Windmeijer D, van Delden A, van den Heuvel G. Web scrapping meets survey design: combining forces,
+BigSurv Conference, October 25 - 27, Barcelona, Spain; 2018.
+
+
+\bibitem{polidoro}
+Polidoro F, Giannini R, Lo Conte R, Mosca S, Rossetti F. Web scraping techniques to collect data on consumer electronics and airfares for Italian HICP compilation. Statistical Journal of the IAOS. 2015;31(2):165–176.
+2015.
+
+\bibitem{bruner}
+Brunner K. Automated price collection via the internet. DESTATIS; 2014.
+
+\bibitem{barcoli}
+Barcaroli G, Scannapieco M, Scarno M, Summa D. Using Internet as a Data Source for Official Statistics: a Comparative Analysis of Web Scraping Technologies.
+New Techniques and Technologies for Statistics, Bruxelles; 2015.
+
+
+\bibitem{swier2}
+Swier N. Webscraping for Job Vacancy Statistics. Eurostat Conference on Social Statistics:Towards more agile social statistics. Luxembourg; 2016.
+
+\bibitem{hhs}
+INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. [Cited 2019 Jun 1] Available from:
+\url{http://www.insse.ro/cms/sites/default/files/field/publicatii/coordonate_ale_nivelului_de_trai_in_romania_2018_1.pdf}
+
+\bibitem{kints}
+van Kints M, de Haan J, Webster M. Utilising big data and multilateral index methods to produce the Australian CPI: Theory, implementation and empirical results. Statistical Journal of the IAOS. 2019; pre-press
+
+\bibitem{gsbpm}
+UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 1] Available from:
+\url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
+
+\bibitem{dopar}
+Calaway R, Microsoft Corp., Weston S, Tenenbaum D. doParallel: Foreach Parallel Adaptor for the 'parallel' Package {R package version 1.0.14} ; 2018. [Cited 2019 Jun 1] Available from: \url{https://cran.r-project.org/web/packages/doParallel/index.html}
+
+\bibitem{foreach}
+Calaway R, Microsoft Corp., Weston S. foreach: Provides Foreach Looping Construct for R {R package version 1.4.4}; 2017. [Cited 2019 Jun 1]
+Available from: \url{https://cran.r-project.org/web/packages/foreach/index.html}  
+
+\bibitem{mschv}
+European Statistical System Committee, Scheveningen Memorandum Big Data and Official Statistics, 2013. [Cited 2019 Jun 1]
+Available from: \url{https://ec.europa.eu/eurostat/documents/42577/43315/Scheveningen-memorandum-27-09-13}
+
+\bibitem{mbch}
+European Statistical System Committee,  Bucharest Memorandum on Official Statistics in a Datafied Society (Trusted Smart Statistics), 2018. [Cited 2019 Jun 1]
+Available from: \url{http://www.dgins2018.ro/wp-content/uploads/2018/10/The-Bucharest-Memorandum-on-Trusted-Smart-Statistics-FINAL-1.pdf}
+
+\bibitem{bdar}
+Eurostat Task Force on Big Data, Big Data Action Plan and Roadmap 1.0, 2014. [Cited 2019 Jun 1]
+Available from:
+\url{https://ec.europa.eu/eurostat/cros/system/files/ESSC%20doc%2022_8_2014_EN_Final%20with%20ESSC%20opinion.pdf} 
+
+\bibitem{awirth_1}
+Wirthmann, A Big Data im Europäischen Statistischen System, AStA Wirtschafts- und Sozialstatistisches Archiv, 10, 2016; [Cited Jun 1]
+Available from:
+\url{https://link.springer.com/article/10.1007/s11943-016-0195-z}
+
+\bibitem{awirth_2}
+Wirthmann, A Trusted Smart Statistics: A reflection on the future of (Official) Statistics, European Conference on Quality in Official Statistics, Krakow, Poland 2018; [Cited Jun 1]
+Available from:
+\url{https://www.q2018.pl/session-27/}
+
+\bibitem{fricc}
+Ricciato, F Towards a Reference Methodological Framework forprocessing MNO data for Official Statistics, 15th Global Forum on Tourism Statistics, Cusco, Peru, 2018; [Cited Jun 1]
+Available from:
+\url{http://www.15th-tourism-stats-forum.com/pdf/Papers/S3/3_1_A_Reference_Methodological_Framework_for_processing_mobile_network_operatordata_for_official_statistics.pdf}
+
+\bibitem{oancea}
+Oancea, B Using Web scrapping techniques for price statistics -the Romanian experience, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
+Available from:
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/05-RO-Using-Web-scrapping-techniques-for-price-statistics.pdf} 
+
+\bibitem{ricwirskagiarei}
+Ricciato, F Skaliotis, M Wirthmann, A Giannakouris, K Reis, F Towards a Reference Architecture for Trusted Smart Statistics, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
+Available from:
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/07-ES-RO-mobile_network_datav3.pdf}
