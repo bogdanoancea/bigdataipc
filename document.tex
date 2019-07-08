@@ -191,13 +191,13 @@ on the result of the automatic data collection.
 
 
 In the following, the activities carried out at each stage will be detailed, noting that we attempted to keep the 
-traditional CPI methodology as much as possible intact. A graphical representation of the data collection and processing is shown in \ref{fig:6}.
+traditional CPI methodology as much as possible intact. A graphical representation of the data collection and processing is shown in Fig.\ref{fig:1}.
 
 \begin{figure}
 \centering
 \includegraphics[height=0.7\linewidth]{fig6.eps}
 \caption{Data collection and processing session}
-\label{fig:6}
+\label{fig:1}
 \end{figure}
 
 
@@ -271,9 +271,8 @@ household's consumption expenses, e.g. food accounts for nearly 40\% of total ex
 
 CPI is computed by weighted serial aggregation of elementary price indices at item, assortment, 
 category and group level, the entire process being a combination of traditional procedures\cite{cpi} 
-and intermediate aggregations targeted at product survivability from one period to another. 
-The process is being graphically described by \ref{fig:2}. After data pre-processing, i.e. testing 
-if data is consistent with the computation requirements, removing duplicates, matching 
+and intermediate aggregations targeted at product survivability from one period to another. After data pre-processing, 
+i.e. testing if data is consistent with the computation requirements, removing duplicates, matching 
 products across different periods, the first step requires prices aggregation into an arithmetic 
 monthly average for each item, given that data was collected 3 times per month for food and 
 beverages and once per month for clothes and shoes. 
@@ -368,14 +367,14 @@ $i_{c_{j}}$ = price index of the $j^{th}$ category, \\
 $w_{r_{j}}$ = re-calibrated weight for the $j^{th}$ category.\\
 
 
-The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we build a process diagram in terms of GSBPM (Generic Statistical Business Process Model)\cite{gsbpm}. The GSPBM framework was used to attain a small, but relatively modular production pipeline, as a monitoring and integration tool and, also, as a checklist in producing some preliminary results. Starting with some basic objectives, we tried to identify critical points in the production pipeline and provide flexible definitions for a set of activities flagged as important. While not present in the diagram, the entire workflow chain contains feedback loops between each state and on the state itself, in order to build incremental improvements taking into consideration the allocated resources. Depending on future needs, the entire pipeline can be subjected to re-engineering.      
+The process diagram is shown in Fig.\ref{fig:2}, while in Fig.\ref{fig:3} we build a process diagram in terms of GSBPM (Generic Statistical Business Process Model)\cite{gsbpm}. The GSPBM framework was used to attain a small, but relatively modular production pipeline, as a monitoring and integration tool and, also, as a checklist in producing some preliminary results. Starting with some basic objectives, we tried to identify critical points in the production pipeline and provide flexible definitions for a set of activities flagged as important. While not present in the diagram, the entire workflow chain contains feedback loops between each state and on the state itself, in order to build incremental improvements taking into consideration the allocated resources. Depending on future needs, the entire pipeline can be subjected to re-engineering.      
 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]{fig1.eps}
-\caption{The process diagram for computing online price index - the green box adds a new phase to the traditional price index methodology}
-\label{fig:1}
+\caption{The process diagram for computing online price index}
+\label{fig:2}
 \end{figure}
 
 
@@ -383,7 +382,7 @@ The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we b
 \centering
 \includegraphics[width=1\linewidth]{fig2.eps}
 \caption{The GSBPM diagram}
-\label{fig:2}
+\label{fig:3}
 \end{figure}
 
 
@@ -392,14 +391,14 @@ The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we b
 
 
 Using August 2017 as the basis for computation of the monthly price index, we obtained the aggregated indices at the 
-groups of food, clothing and footwear presented in figures \ref{fig:3}, \ref{fig:4}, and \ref{fig:5}.
+groups of food, clothing and footwear presented in figures \ref{fig:4}, \ref{fig:5}, and \ref{fig:6}.
 
 
 \begin{figure}
 \centering
 \includegraphics[width=0.7\linewidth]{fig3.eps}
 \caption{The comparative evolution of the price indices for food}
-\label{fig:3}
+\label{fig:4}
 \end{figure}
 
 
@@ -407,7 +406,7 @@ groups of food, clothing and footwear presented in figures \ref{fig:3}, \ref{fig
 \centering
 \includegraphics[width=0.7\linewidth]{fig4.eps}
 \caption{The comparative evolution of the price indices for clothes}
-\label{fig:4}
+\label{fig:5}
 \end{figure}
 
 
@@ -415,7 +414,7 @@ groups of food, clothing and footwear presented in figures \ref{fig:3}, \ref{fig
 \centering
 \includegraphics[width=0.7\linewidth]{fig5.eps}
 \caption{The comparative evolution of the price indices for footwear}
-\label{fig:5}
+\label{fig:6}
 \end{figure}
 
 
@@ -556,6 +555,9 @@ ILO/IMF/OECD/UNECE/Eurostat/The World Bank. Consumer price index manual: Theory 
 \bibitem{cpi3}
 UNECE/ILO/IMF/OECD/EUROSTAT/The World Bank/ONS. Practical Guide to Producing Consumer Price Indices. New York and Geneva: United Nations; 2OO9. [Cited 2019 Jun 19]
 
+\bibitem{swier}
+Swier N. How should web scraping be organised for official statistics? 61st ISI World Statistics Congress, Marrakech; 2017. [Cited 2019 Jun 20]
+
 \bibitem{robot2018}
 CBS. Robot Framework. 2018 [Cited 2019 Jan 20]. Available from: \url{http://research.cbs.nl/Projects/RobotFramework/index.html}. [Cited 2019 Jun 20]
 
@@ -579,6 +581,10 @@ Wickham H. rvest: Easily Harvest (Scrape) Web Pages {R package version 0.3.2}; 2
 
 \bibitem{dopar}
 Calaway R, Microsoft Corp., Weston S, Tenenbaum D. doParallel: Foreach Parallel Adaptor for the 'parallel' Package {R package version 1.0.14} ; 2018. [Cited 2019 Jun 20] Available from: \url{https://cran.r-project.org/web/packages/doParallel/index.html}
+
+\bibitem{foreach}
+Calaway R, Microsoft Corp., Weston S. foreach: Provides Foreach Looping Construct for R {R package version 1.4.4}; 2017. [Cited 2019 Jun 20]
+Available from: \url{https://cran.r-project.org/web/packages/foreach/index.html} 
 
 \bibitem{hhs}
 INS Romania. Coordonate ale nivelului de trai in Romania (in Romanian); 2019. [Cited 2019 Jun 21] Available from:
