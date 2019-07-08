@@ -171,7 +171,6 @@ RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium
 
 
 
-
 The automatic collection of prices observed on the sites included in the sample was made during
 the same period as for the traditional CPI survey. Due to the noise present in extracted data, decomposition at the core components of the CPI classification is required first.
 
@@ -280,14 +279,12 @@ beverages and once per month for clothes and shoes.
 
 \begin{equation}\label{eq:1}
 \overline{p}_{v} = \frac{\sum_{j=1}^n {p_{v_{j}}}}{n} ,
-\end{equation} ,
+\end{equation}
+where:\\
+$\overline{p}_{v}$ = monthly price average for any given variety, \\
+$n$ = number of periods for which the price data was collected in a given month, \\
+$p_{v_{j}}$ = price of an item in $j^{th}$ period within a month.\\	
 
-\begin{center} 	
-	
-	$\overline{p}_{v}$ = monthly price average for any given variety, \\
-	$n$ = number of periods for which the price data was collected in a given month, \\
-	$p_{v_{j}}$ = price of an item in $j^{th}$ period within a month	
-\end{center}
 
 The average is used to compute elementary 
 price indices at product/variety level, by dividing the current monthly average for an item to it's respective base period monthly average. 
@@ -295,24 +292,22 @@ price indices at product/variety level, by dividing the current monthly average 
 \begin{equation}\label{eq:2}
 i_{p_{v}} = \frac{\overline{p}_{v_{current}}}{\overline{p}_{v_{base}}} ,
 \end{equation}
+where:\\
+$i_{p_{v}}$ = elementary prices index for any given variety, \\
+$\overline{p}_{v_{current}}$ = current monthly price average, \\
+$\overline{p}_{v_{base}}$ = base monthly price average.\\
 
-\begin{center}	
-	$i_{p_{v}}$ = elementary prices index for any given variety, \\
-	$\overline{p}_{v_{current}}$ = current monthly price average, \\
-	$\overline{p}_{v_{base}}$ = base monthly price average.
-\end{center} 
 
 To ensure that results are comparable at different periods and capture only pure price change, ideally would be to collect price data for the same products indefinitely\cite{cpi2}. In the real world, this is impractical due to different reasons. Therefore, price data collectors are equipped with a list of strict rules when products or services are no longer available and substitutes are needed. These rules may target product description(producer, weight, composition, etc.), store placement and local/national market share, or a combination of these is used to ensure that qualitative differences between products no longer available on the market and substitutes are minimal \cite{cpi}. According to different research studies on using Big Data to compile CPI conducted inside National Statistical Offices, item survivability in sample is the most common issue in preserving comparable results across longer periods\cite{ons2017, willenborg2017, tranzitivity, kints}. To address this issue an intermediate calculation step was necessary. Based on the optimal supervised classification score, price indices for similar items were clustered into a generic price index for the same statistical unit by using a geometric mean. For example, within the same statistical unit we collected at $t_{0}$ 3 products, according to the classification score, and at $t_{1}$ 2 products for the same assortment, to ensure the price change is kept within reasonable margins, we apply a geometric mean to cluster them into a generic product.   
 
 \begin{equation}\label{eq:3}
 i_{g} = \sqrt[n]{\prod_{j=1}^{n} i_{p_{v_{j}}}}
 \end{equation}
+where:\\
+$i_{g}$ = elementary price index for a generic product, \\
+$n$ = number of products within the same assortment based on the classification score, \\
+$i_{p_{v_{j}}}$ = the $j^{th}$ elementary price index within the same assortment.\\
 
-\begin{center}
-	$i_{g}$ = elementary price index for a generic product, \\
-	$n$ = number of products within the same assortment based on the classification score, \\
-	$i_{p_{v_{j}}}$ = the $j^{th}$ elementary price index within the same assortment
-\end{center}
 
 The subsequent calculations follow roughly the steps as in the Romanian National Institute of Statistics CPI methodology\cite{cpi}. Taking into consideration that in order to obtain the price index at the expenditure category level, e.g. items containing white flour, we assigned to each category a weight equal to $\frac{1}{n}$,
 where $n$ is the number of assortments identified as belonging to the same category. 
@@ -320,23 +315,20 @@ where $n$ is the number of assortments identified as belonging to the same categ
 \begin{equation}\label{eq:4}
 i_{a} = \sqrt[n]{\prod_{j=1}^n i_{g_{j}}}
 \end{equation}
-
-\begin{center}
-	$i_{a}$ = price index for an assortment, \\
-	$n$ = number of statistical units per assortment, \\
-	$i_{g_{j}}$ = elementary price index for a generic item in the $j^{th}$ statistical unit
-\end{center}
+where:\\
+$i_{a}$ = price index for an assortment, \\
+$n$ = number of statistical units per assortment, \\
+$i_{g_{j}}$ = elementary price index for a generic item in the $j^{th}$ statistical unit.\\
 
 
 \begin{equation}\label{eq:5}
 i_{c} = \frac{\sum_{j=1}^n i_{a_{j}}}{n}
 \end{equation}
+where:\\
+$i_{c}$ = price index for a category
+$n$ = number of assortments in the category, \\
+$i_{a_{j}}$ = the $j^{th}$ price index within an assortment.\\
 
-\begin{center}
-	$i_{c}$ = price index for a category
-	$n$ = number of assortments in the category, \\
-	$i_{a_{j}}$ = the $j^{th}$ price index within an assortment
-\end{center}
 
 To obtain indices at group level, e.g. foods, in the last step, we used COICOP consumption weights from CPI methodology in order to aggregate category indices.  The following formula was used:
 
@@ -344,27 +336,23 @@ To obtain indices at group level, e.g. foods, in the last step, we used COICOP c
 \begin{equation}\label{eq:6}
 cr_{w_{g}} = \frac{\sum_{j=1}^{n_{c}}{w_{j_{c}}}}{\sum_{j=1}^{n_{b}}{w_{j_{b}}}}
 \end{equation}
-
-\begin{center}
-	$cr_{w_{g}}$ = re-calibration coefficient for group weights, \\
-	$n_{c}$ = current period number of categories belonging within a group, \\
-	$n_{b}$ = base period number of categories belonging within a group, \\
-	$w_{j_{c}}$ = the $j^{th}$ group weight for current period, \\
-	$w_{j_{b}}$ = the $j^{th}$ group weight for base period
-	
-\end{center}
+where:\\
+$cr_{w_{g}}$ = re-calibration coefficient for group weights, \\
+$n_{c}$ = current period number of categories belonging within a group, \\
+$n_{b}$ = base period number of categories belonging within a group, \\
+$w_{j_{c}}$ = the $j^{th}$ group weight for current period, \\
+$w_{j_{b}}$ = the $j^{th}$ group weight for base period.\\
 
 The re-calibration coefficient is applied to each category weight:
 
 \begin{equation}\label{eq:7}
   w_{r} = w_{g} \times cr_{g}
 \end{equation}
+where:
+$w_{r}$ = re-calibrated weight, \\
+$w_{g}$ = initial weight, \\
+$cr_{g}$ = re-calibration coefficient.\\
 
-\begin{center}
-	$w_{r}$ = re-calibrated weight, \\
-	$w_{g}$ = initial weight, \\
-	$cr_{g}$ = re-calibration coefficient
-\end{center}
 
 This intermediate stage is necessary due to potential absence of certain items from sample at any given moment in time, 
 The final formula used was:
@@ -372,13 +360,12 @@ The final formula used was:
 \begin{equation}\label{eq:8}
 	i_{g} = \sum_{j=1}^{n} i_{c_{j}} \times w_{r_{j}}
 \end{equation}
+where:\\
+$i_{g}$ = price index at group level, \\
+$n$ = number of categories within a group, \\
+$i_{c_{j}}$ = price index of the $j^{th}$ category, \\
+$w_{r_{j}}$ = re-calibrated weight for the $j^{th}$ category.\\
 
-\begin{center}
-	$i_{g}$ = price index at group level, \\
-	$n$ = number of categories within a group, \\
-	$i_{c_{j}}$ = price index of the $j^{th}$ category, \\
-	$w_{r_{j}}$ = re-calibrated weight for the $j^{th}$ category
-\end{center}
 
 The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we build a process diagram in terms of GSBPM (Generic Statistical Business Process Model)\cite{gsbpm}. The GSPBM framework was used to attain a small, but relatively modular production pipeline, as a monitoring and integration tool and, also, as a checklist in producing some preliminary results. Starting with some basic objectives, we tried to identify critical points in the production pipeline and provide flexible definitions for a set of activities flagged as important. While not present in the diagram, the entire workflow chain contains feedback loops between each state and on the state itself, in order to build incremental improvements taking into consideration the allocated resources. Depending on future needs, the entire pipeline can be subjected to re-engineering.      
 
