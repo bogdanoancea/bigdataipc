@@ -16,6 +16,7 @@
 
 \renewcommand{\figurename}{Fig.}
 
+
 \begin{document}
 
 
@@ -41,20 +42,18 @@ technique for treating high volatility present in the collected data using a dis
 
 \section{Introduction}
 
-For the past 30 years, the world has witnessed a new kind of fundamental structural change, which resembles, in terms of magnitude and impact, with the Industrial Revolution, as data production and usage was actively embedded in the very fabric of society. Data pervasiveness in every human and\\or non-human activity was made possible by the advent of new technologies such as the Internet and World Wide Web. This created an exponential increase in data generation, coined under the term Big Data. In 2013, at the DGINS conference in Scheveningen, Netherlands, the European Statistical System (ESS) Committee agreed upon the strategical importance of Big Data and set the stage for future plans on integrating Big Data into the official statistics production system \cite{mschv}. ESS Task Force Big Data was created and entrusted to setup a Big Data strategy and implementation framework. Along with other partners, the Big Data Action Plan and Roadmap 1.0. was elaborated as a planning and monitoring tool, providing descriptions of the necessary steps that should be undertaken by ESS and NSI's for an optimal response to this new challenge on short, medium and long-term. The ESSnet on Big Data, the collaborative research network of ESS, was tasked with piloting research projects \cite{awirth} to asses what are the necessary capabilities, such as new methodological approaches \cite{fricc}, new skills and new IT technologies, and also to design them. In 2017, The Romanian National Institute of Statistics started an internal project to asses the potential of data collection methods from the World Wide Web with some preliminary results being presented at the DGINS 2018, Bucharest Conference \cite{oancea}. Bucharest Memorandum \cite{mbch} explicitly expressed that new data sources, new IT technologies and new expertise will be at the core of Trusted Smart Statistics initiative \cite{}, an Eurostat and ESS joint effort to incorporate Big Data sources into the statistical production system at ESS level.
-%TODO Bucharest memorandums
+For the past 30 years, the world has witnessed a new kind of fundamental structural change, which resembles, in terms of magnitude and impact, with the Industrial Revolution, as data production and usage was actively embedded in the very fabric of society. Data pervasiveness in every human and\\or non-human activity was made possible by the advent of new technologies such as the Internet and World Wide Web. This created an exponential increase in data generation, coined under the term Big Data. In 2013, at the DGINS conference in Scheveningen, Netherlands, the European Statistical System (ESS) Committee agreed upon the strategical importance of Big Data and set the stage for future plans on integrating Big Data into the official statistics production system \cite{mschv}. ESS Task Force Big Data was created and entrusted to setup a Big Data strategy and implementation framework. Along with other partners, the Big Data Action Plan and Roadmap 1.0. was elaborated as a planning and monitoring tool, providing descriptions of the necessary steps that should be undertaken by ESS and NSI's for an optimal response to this new challenge on short, medium and long-term. The ESSnet on Big Data, the collaborative research network of ESS, was tasked with piloting research projects \cite{awirth} to asses what are the necessary capabilities, such as new methodological approaches \cite{fricc}, new skills and new IT technologies, and also to design them. In 2017, The Romanian National Institute of Statistics started an internal project to asses the potential of data collection methods from the World Wide Web with some preliminary results being presented at the DGINS 2018, Bucharest Conference \cite{oancea}. Bucharest Memorandum \cite{mbch} explicitly expressed that new data sources, new IT technologies and new expertise will be at the core of Trusted Smart Statistics initiative \cite{ricwirskagiarei}, an Eurostat and ESS joint effort to incorporate Big Data sources into the statistical production system at ESS level.
 
 The incorporation of Big Data sources in the official statistical production does not aim to entirely replace the traditional methodologies, but it is rather an iterative and incremental approach in which certain components of the traditional statistical production process are enhanced by the Big Data sources inputs and the related processing algorithms \cite{grif2016_1}, \cite{grif2016_2}. Alternatively, Big Data sources can contribute to the reduction of the response burden or they can be used only to study some economic or social phenomena before designing a statistical survey which are inherently expensive to pilot. Also, incorporating Big Data sources into official statistics means maintaining a net competitive advantage and relevance of the official statistics products compared to those provided by a plethora of commercial players, with reference to large corporations that are active in the field of information technology \cite{eu2012}.
 
-%TODO
-One of the main big data sources is the Web system that can be considered an immense reservoir of information and this source cannot be neglected
+One of the main big data sources is the World Wide Web (WWW) system, which can be considered an immense reservoir of information impossible to be neglected
 by official statistics institutes. In order to take advantage of the data publicly available on Web sites some automatic procedure for data collection 
-should be designed first. These procedures are referred to under the term of web-scrapping.
+should be designed first. These procedures are referred to under the term of web-scrapping or automated data collection.
 
 Automatic data collection of price data and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
-from online shops were used to build a consumer price index for some South-American countries. Since this first experiment, several
+from online shops were used to build a CPI for some South-American countries. Since this first experiment, several
 statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
-for consumer price index calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
+for CPI calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
 or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
 although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
 only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
@@ -69,29 +68,28 @@ of modern computing technologies, could create the premises for developing a fra
 and technologies in a systematic and rigorous manner \cite{ons2017}. 
 
 
-Our project experimented how web-scrapping collection method can be used to compute a new/experimental 
-consumer price index (CPI) or to improve the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
+Our project experimented on how web-scrapping collection method can be used as an alternative tool for data collection in order to compute a new/experimental CPI or to improve upon the classical CPI computation \cite{otawa2017}. We started our work by identifying and 
 selecting online channels that have significant weights in the process of trading goods and services for household consumption. 
 This is not an easy task given that there is no information on the volume of online transactions made by firms, 
-issue found in other projects too \cite{willenborg2017}. An eloquent 
-example is given by retailers in the hypermarket category, which although they have a physical trading correspondent with very high 
+issue found in other projects too \cite{willenborg2017}. 
+An example may be that retailers in the hypermarket category, although they have a physical trading correspondent with very high 
 trading volumes, the volume of online transactions is unknown. The criteria used to select the online trading channels included in 
-our study was to have a physical correspondent and record significant sales volumes at national level. Next, we proceeded with the 
+our study was to have a physical correspondent and record significant overall sales turnover at national level. Next, we proceeded with the 
 task of identifying the appropriate means to implement the automated price collection process from e-commerce sites. The criteria 
 used to identify the optimal solutions are expressed in terms of flexibility, ease of use, scalability and cost. An essential task 
-to achieve this goal was to explore other approaches and test the existing solutions. 
+to achieve this goal was to explore different methods/approaches and test the existing solutions. 
 
 
-Another objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
+The second objective of our project was to carry out the automatic price collection process over a relevant period: 6 months - 2 years. 
 Achieving a maturity level specific to official price statistics that are currently published will require a much wider period of 
 rigorous and systematic testing of the collection process and the results obtained. The resources available for running the data 
 collection, technology and skills are critical and a continuity plan should be devised if some data sources become unavailable, 
 legislative changes occur during this period, or the technology and skills are outdated by the evolution of the Web architecture. 
 
 
-The next objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
+The third objective of our project was to compute an elementary price index at article/varietal and assortment level and compare 
 it with those obtained using the traditional data collection method in order to emphasize the issues related to the difficulties 
-of applying and/or adapting the traditional consumer price index (CPI) methodology \cite{cpi} to the new data sources.  A compromise to 
+of applying and/or adapting the traditional CPI methodology \cite{cpi} to the new data sources.  A compromise to 
 ensure a certain degree of comparability is the use of traditional CPI methodology \cite{cpi2}, \cite{cpi3} to estimate price indices, although 
 traditional methodology may be incompatible from some points of view with the new data source. 
 
@@ -116,7 +114,7 @@ hypermarket segment in Romania, does not have a section dedicated to online tran
 5 sites for clothing and 5 sites for footwear products. However, moves made at European level by firms that have physical 
 stores on this segment suggest that market forces will require online migration of the most important players in the field.
 
-Table \ref{table:2} provides a description of the collected variables. For each item we collected the item name, if provided, 
+Table \ref{table:1} provides a description of the collected variables. For each item we collected the item name, if provided, 
 a quantitative and qualitative description of the item, current sale price, if provided, price unaffected by discounts or 
 price per standardized quantity, name of the site from which the data was collected and date of collection. Data is stored 
 in comma separated values files. In total, between 50,000 to 70,000 records were collected each month.
@@ -136,18 +134,15 @@ in comma separated values files. In total, between 50,000 to 70,000 records were
 		\hline
 	\end{tabular}
 	\caption{Collected variables description}
-	\label{table:2}
+	\label{table:1}
 \end{table}
 
 Data collection took place through the Robot Framework and RSelenium software solution. 
 After we evaluated several web scrapping frameworks we started our project using Robot Framework. This software solution is implemented using Javascript language with node.js library.
-The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. The contents of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and an hour.
-Editing the script file involves the use of information available through a development tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can enter content components within the element into the URLs, being more precise. URLs are provided to a set of procedures that serialize the browsing and parsing process on Web sites. It is worth mentioning that the Robot Framework solution is highly configurable, through the introduction of Javascript specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a large organization.
+The main advantage of this framework is that it can automatically access asynchronous and dynamic web content by simulating the interaction between a user / web browser and a web server. Automating the collection of information from dynamically generated content sites involves simulating the interaction between the user/web browser and the server through a headless browser application, in this case phantom.js. The Robot Framework solution allows user to set up a script that sends asynchronous requests to the Web server through the browser. Content of responses sent asynchronously by the server are stored, parsed, and copied to .csv files. Depending on the nature and amount of the dynamic elements in a website, a web scraping session may take between a few minutes and a few hours.
+Editing the script file involves the use of information available through a web developer tool, common to all major Web browser distributions (Chrome, Firefox, Edge), for identifying the item of interest from the Web page structure, as well as any scripts that can interact with that item. The address of an item in a document can be reproduced in two ways within the script file, the first being with the CSS selectors and the other with the Xpath selectors. The difference between the two modes is given by the fact that the second one can point to text content components within the element. Extracted page URLs are provided to a set of procedures that serialize navigation process on Web sites. It is worth mentioning that the Robot Framework solution is highly configurable, through the introduction of Javascript specific procedures that are used by the sites, proven to be a scalable web scrapping solution for the requirements of a medium sized project. The major downside of Robot Framework is that currently, from what we are aware is not under active developement.
 
-%TODO RSelenium, foreach, doParallel
-
-
-
+RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium automation web browser testing framework \cite{}. RSelenium provides basic methods for passing synchronous/asynchronous messages and parsing responses to and from a web browser. A net advantage of using RSelenium consists in how easy is to integrate into the R ecosystem, substantially improving the maintainability aspects of the whole process. For example, creating scripts that can access web sites/web pages in parallel \cite{dopar}\cite{foreach} is very easy to implement and maintain, by comparison with other web scraping solutions, saving countless hours in the data collection process. A basic work pipeline consists in allocating computational power for a parallel cluster, starting a Selenium server instance, starting multiple web browser instances, navigating and collecting data, closing the web browsers, the server and the nodes after each successful session or saving the browser state as a message in case of exception.   
 
 \begin{algorithm}[h]
 	\caption{Algorithm for data collection}
@@ -222,12 +217,12 @@ of the site and the log files of the web-scrapping application. Some possible er
 
 Next, all the files obtained from the data collection process for a certain month are joined automatically. The resulting 
 file is read by an R script and transformed into a data structure suitable for an automatic processing procedure. Some 
-basic transformations are again performed using an automated R script before classifying and linking the products according 
+basic transformations are again performed using an automated R script, before classifying and linking the products according 
 to the CPI classification. We started with the manual product linking and classification according to the standard CPI 
 classification which implies identifying the observations which contain a description similar to the one provided in the
 classical CPI classification. This activity can generate errors whose propagation can significantly influence the quality 
 of the results. The principle that we used in the absence of a previous experience in working with methodological aspects 
-of selection of the articles was to assume that the consumer will choose a product or products substitutable to the one present 
+for product selection was to assume that the consumer will choose a product or products substitutable to the one present 
 in the standard classification within a reasonable price limit ($<= 150\%$ of the price of an article from the standard classification). 
 
 Thus, we chose to select several articles for one assortment within the same observation point. To reinforce the strict tracking 
@@ -236,14 +231,13 @@ for all decades and observed months. The join operation between two or more tabl
 the product description by matching strings in a 1 to 1 ratio. After performing this activity, from an initial number 
 of about 10,000 of articles, they were restricted to 545 articles, 216 assortments, and 52 expenditure groups, 
 identified as constant during the 6 months of observation, assuming that the description given in the observations 
-made for the variable "name" represents a guarantor for the invariance of the technical and qualitative characteristics 
-of the articles. This technique was used to encode the entire sample.
+made for the variable "name" represents a guarantor for the invariance of the technical and qualitative characteristics of the targeted products.
 
 
-Several attempts were made to develop an automatic encoding procedure with encouraging results. However, their use 
-would involve deviations from the established methodological standard, manifested by the appearance and disappearance 
+Several attempts were made to develop an automatic classification procedure with encouraging results. However, their use 
+would involve deviations from the classical CPI methodological framework, manifested by the appearance and disappearance 
 of the articles in the sample with a high frequency. We tried several machine learning and distance-based algorithms 
-for this procedure and the results are presented in table 1. The best results, as it can be observed in \ref{table:1}, 
+for this procedure and the results are presented in table 1. The best results, as it can be observed in \ref{table:2}, 
 were obtained using the Levenshtein distance.
 
 
@@ -263,12 +257,12 @@ were obtained using the Levenshtein distance.
 	\hline
 \end{tabular}
 \caption{A summary of the methods used for automatic classification}
-\label{table:1}
+\label{table:2}
 \end{table}
 
 \section{Some methodological aspects}\label{methodology}
 
-The scope of the project was to asses if online observed prices can be successfully
+A secondary objective of the project is to asses if online observed prices can be successfully
 used as a substitute data set for computing, either the traditional CPI or a similar 
 experimental statistics, e.g. online observed CPI. Therefore, in order to retain, 
 as much as possible, comparable results with the traditional CPI, the collection periods 
@@ -291,10 +285,10 @@ beverages and once per month for clothes and shoes.
 \overline{p}_{v} = \frac{\sum_{j=1}^n {p_{v_{j}}}}{n} ,
 \end{equation} ,
 
-\begin{center} 
-	$\overline{p}_{v}$ = monthly price average for any given variety, \\
-	$n$ = number of periods for which the price data was collected in a given month, \\
-	$p_{v_{j}}$ = price of an item in $j^{th}$ period within a month
+\begin{center} 	
+	\overline{p}_{v} &= monthly price average for any given variety, \\
+	n &= number of periods for which the price data was collected in a given month, \\
+	p_{v_{j}} &= price of an item in $j^{th}$ period within a month	
 \end{center}
 
 The average is used to compute elementary 
@@ -410,8 +404,6 @@ The process diagram is shown in Fig. \ref{fig:1}, while in Fig. \ref{fig:2} we b
 
 \section{Results and discussion } \label{results}
 
-%TODO graphic number of products per month per group(food, clothes, footwear)
-
 
 Using August 2017 as the basis for computation of the monthly price index, we obtained the aggregated indices at the 
 groups of food, clothing and footwear presented in figures \ref{fig:3}, \ref{fig:4}, and \ref{fig:5}.
@@ -449,33 +441,36 @@ representativeness at national level due to the lack of specific information. Se
 clothing and footwear stores can serve large cities and neighboring areas, having complex pricing 
 policies which are different from small shops serving small city areas and rural communities.
 
-%TODO Benchmark between different webscraping technologies
 
 \section{Conclusions and future developments}\label{conclusions}
 
 This project was the first experiment that implemented a web-scrapping technique for data collection 
-in our NSI. While we gained experience with the software tools involved in such a project we also 
+inside Romanian National Institute of Statistics. CBS's Robot Framework proved to be a very flexible web scraping tool, providing an easy solution
+for developing and maintaing code just for data collection. The major drawback is that currently is no longer
+in public active developement. RSelenium, along with other packages from R ecosystem, is a very powerful but easy to 
+use tool, greatly enhancing the flexibility through the use of a single programming language for the whole workflow pipeline.  
+While we gained experience with the software tools, we also 
 identified some limitations for our specific study of online price collection which are briefly described below:
 \begin{itemize}
 \item Generalization hypothesis of online transactions. The number of households purchasing an 
 online product is relatively small, and generally depends on several factors such as the geographical position, 
 income level, education level, etc.
 \item Not all businesses with a significant volume of transactions included in the list of observation 
-units for traditional consumer price index has a website;
+units for traditional CPI has a website;
 \item The IT technology can have a significant impact on price variation. An example of this may be the discrimination 
 based on the geographic position of a user when displaying prices on a particular site;
-\item The components of the classical consumer basket and the weights used at the level of the expenditure groups do not entirely reflect the consumption habits and the budget restrictions of the segment of the population addressed by the online stores.
+\item The components of the classical consumer basket and the weights used at the level of the expenditure groups do not 
+entirely reflect the consumption patterns and the budget restrictions of the population segment addressed by online stores.
 \end{itemize}
 
-%TODO propose some modelling techniques (ex. weighted regression)
 
-Based on the results obtained and the potential of the web-scrapping collection method we intend to implement 
-it to other official statistics areas and we will continue to develop a specific online price index [13], 
+Based on the results obtained and the potential of the web-scrapping collection method we intend to try and implement 
+in other official statistics areas and we will continue to develop a specific/experimental online consumer price index [13], 
 by extending the current collection procedures to the entire products and services nomenclature and by 
-developing a new methodology based on online prices. Secondly, a separate product and service nomenclature may 
-be developed specifically for online observations based on measurements such as the longevity of certain products 
+developing a new methodology based on the characteristics of the collected data. Secondly, a separate product and service nomenclature may 
+be developed specifically for online data based on measurements such as the longevity of certain products 
 and services in the online offer, and a series of metadata related to those products and services, for example, analysis of 
-online interaction based on reviews of buyers with the respective brands and the online store.
+online interaction based on buyers reviews with the respective brands and the online store.
 
 
 \begin{thebibliography}{99}
@@ -610,17 +605,22 @@ Available from:
 \bibitem{awirth_2}
 Wirthmann, A Trusted Smart Statistics: A reflection on the future of (Official) Statistics, European Conference on Quality in Official Statistics, Krakow, Poland 2018; [Cited Jun 1]
 Available from:
-\url:{https://www.q2018.pl/session-27/}
+\url{https://www.q2018.pl/session-27/}
 
 \bibitem{fricc}
 Ricciato, F Towards a Reference Methodological Framework forprocessing MNO data for Official Statistics, 15th Global Forum on Tourism Statistics, Cusco, Peru, 2018; [Cited Jun 1]
 Available from:
-\url:{http://www.15th-tourism-stats-forum.com/pdf/Papers/S3/3_1_A_Reference_Methodological_Framework_for_processing_mobile_network_operatordata_for_official_statistics.pdf}
+\url{http://www.15th-tourism-stats-forum.com/pdf/Papers/S3/3_1_A_Reference_Methodological_Framework_for_processing_mobile_network_operatordata_for_official_statistics.pdf}
 
 \bibitem{oancea}
 Oancea, B Using Web scrapping techniques for price statistics -the Romanian experience, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
 Available from:
-\url:{http://www.dgins2018.ro/wp-content/uploads/2018/10/05-RO-Using-Web-scrapping-techniques-for-price-statistics.pdf} 
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/05-RO-Using-Web-scrapping-techniques-for-price-statistics.pdf} 
+
+\bibitem{ricwirskagiarei}
+Ricciato, F Skaliotis, M Wirthmann, A Giannakouris, K Reis, F Towards a Reference Architecture for Trusted Smart Statistics, DGINS Conference, Bucharest, Romania, 2018; [Cited Jun 1]
+Available from:
+\url{http://www.dgins2018.ro/wp-content/uploads/2018/10/07-ES-RO-mobile_network_datav3.pdf}
 
 \end{thebibliography}
 
