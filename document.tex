@@ -53,8 +53,8 @@ should be designed first. These procedures are referred to under the term of web
 Automatic data collection of price data and its use to derive statistical indicators was pioneered by MIT \cite{MIT} where the prices collected 
 from online shops were used to build a CPI for some South-American countries. Since this first experiment, several
 statistical offices throughout the world started to collect data from online retailers and study how these data sets can be used
-for CPI calculation. We can mention here Statistics Netherlands \cite{cbs}, ISTAT \cite{polidoro}  
-or Destatis \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
+for CPI calculation. We can mention here CBS Netherlands \cite{cbs}, ISTAT Italy\cite{polidoro}  
+or Destatis Germany \cite{bruner} as some of the first statistical offices in Europe that experimented the web-scrapping technique for online prices, 
 although they didn't follow the classical big data approach of MIT and only monitored some prices or tried to collect prices
 only for the products included in the traditional collection method. The web-scrapping technique was used to collect data in other areas
 of statistics too, for example to improve some statistical registers \cite{barcoli} or for job vacancies \cite{swier2}.
@@ -173,24 +173,14 @@ RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium
 
 
 The automatic collection of prices observed on the sites included in the sample was made during
-the same period as for the traditional CPI survey. Due to the noise present in extracted data, decomposition at the core components of the CPI classification is required first.
+the same period as for the traditional CPI survey. Due to the noise present in extracted data, 
+decomposition at the core components of the CPI classification is required first.To address this issue, we have 
+developed a series of R scripts that transform the data in a way that allows flexible handling. The CPI computation steps 
+are sequentially deployed, the data input for each stage depending on the output of previous stage, 
+except for the first step whose input depends on raw data.
 
 
-The structure of the data collected from the retailers’ sites for the food group of products contains the product 
-name, the manufacturer, the quantity, certain technical-quality details, the price per unit or the price per piece, 
-the article/varietal and assortment type, and the category according to the structure of the site. From the point of view 
-of the classification of products in a given product category, these data may appear at a first glance 
-as inputs for a manual or automatic classification procedure, but the very large number of products and the fact 
-that the description is not standardized for all sites targeted by the collection process makes this stage to be considered as the most difficult one.
-
-A trivial observation about the form of data is that they cannot be directly used in the process of classifying 
-and estimating price indices. To address this issue, we have developed a series of R scripts that transform 
-the data in a way that allows flexible handling. The CPI computation steps are sequentially deployed, the data 
-input for each stage depending on the output of the previous stage, except for the first step whose input depends 
-on the result of the automatic data collection.
-
-
-In the following, the activities carried out at each stage will be detailed, noting that we attempted to keep the 
+In the following paragraphs activities carried out at each stage will be described, underlying that we attempted to keep the 
 traditional CPI methodology as much as possible intact. A graphical representation of the data collection and processing is shown in Fig.\ref{fig:1}.
 
 \begin{figure}
@@ -543,7 +533,7 @@ Auer J, Boettcher I, From price collection to price data analytics. How new larg
 Ottawa Group - International Working Group on Price Indices; 2017 [Cited 2019 May 15]. Available from: \url{http://www.ottawagroup.org/}
 
 \bibitem{willenborg2017}
-Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, Nederlands; 2017 [Cited 2019 Jun 18]. Available from:
+Willenborg L. Elementary price indices for internet data. Discussion Paper no. 8, CBS, The Hague, The Nederlands; 2017 [Cited 2019 Jun 18]. Available from:
 \url{https://www.cbs.nl/-/media/_pdf/2017/25/elementary price indices.pdf}.
 
 \bibitem{cpi}
