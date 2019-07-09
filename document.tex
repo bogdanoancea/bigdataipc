@@ -105,36 +105,20 @@ in collecting, processing and storing the data instead of acquiring the data dir
 cost associated with developing and maintaining a large portion of the production pipeline. We explored several existing software solutions: 
 Robot framework \cite{robot2018}, Scrapy \cite{scrapy1}, \cite{scrapy2} Apache Nutch \cite{nutch}, RSelenium \cite{rs1}, and \cite{rvest}. 
 
-The observation unit was the web site of the retail companies. In this case, the assumption from which we started was 
-that the companies cover the entire national territory through their site. Sites selection was based on establishing a 
-sales-turnover relationship, sorting by decreasing order the sales figures reported by the firms that own the sites. 
-At the present moment, there are certain barriers, for example the most important player in terms of turnover on the 
-hypermarket segment in Romania, does not have a section dedicated to online transactions. We selected 4 sites for food, 
-5 sites for clothing and 5 sites for footwear products. However, moves made at European level by firms that have physical 
-stores on this segment suggest that market forces will require online migration of the most important players in the field.
+The statistical unit was the web site of the retailers. In this case, the assumption from which we started was 
+that retailers have national coverage through their site. We selected the sites that we included in our project analysing 
+the relationship between sales and turnover, choosing those retailers with the highest values for sales volume. 
+When we started the project we found out that not all major players on the food, clothes and footwear market have
+online distribution channels. From those that have a website for e-commerce we sampled 4 sites for food, 
+5 sites for clothing and 5 sites for footwear products. But there are strong market signals that in the near future 
+we expect that all brick-and-mortar retailers will have a dedicated online distribution channel.
 
 Table \ref{table:1} provides a description of the collected variables. For each item we collected the item name, if provided, 
 a quantitative and qualitative description of the item, current sale price, if provided, price unaffected by discounts or 
 price per standardized quantity, name of the site from which the data was collected and date of collection. Data is stored 
 in comma separated values files. In total, between 50,000 to 70,000 records were collected each month.
 
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{ c c c p{0.4\linewidth}}
-		\hline
-		 No. Crt. & Variable Name & Type & Definition  \\
-		\hline  
-		1 & \texttt{prod\_name} & string & Records the name of the item as seen on site.\\  \hline
-		2 & \texttt{prod\_des}  & string & Auxiliary information regarding item quantitative and qualitative specifications. \\ \hline
-		3 & \texttt{price}	  	& float  & Price of the item as seen on site.  \\ \hline
-		4 & \texttt{price\_old} & float  & Price unaffected by promotions or price per quantity.\\ \hline
-		5 & \texttt{site}	  	& string & Name of the site. \\ \hline
-		6 & \texttt{date} 	  	& date   & Collection date. \\ 
-		\hline
-	\end{tabular}
-	\caption{Collected variables description}
-	\label{table:1}
-\end{table}
+
 
 Data collection took place through the Robot Framework and RSelenium software solutions. 
 After we evaluated several web scrapping frameworks we started our project using Robot Framework. This software solution is implemented using Javascript language with node.js library.
@@ -143,109 +127,56 @@ Editing the script file involves the use of information available through a web 
 
 RSelenium \cite{rs1} is an API developed as a R package for the popular Selenium automation web browser testing framework. RSelenium provides basic methods for passing synchronous/asynchronous messages and parsing responses to and from a web browser. A net advantage of using RSelenium consists in how easy is to integrate into the R ecosystem, substantially improving the maintainability aspects of the whole process. For example, creating scripts that can access web sites/web pages in parallel \cite{dopar}\cite{foreach} is very easy to implement and maintain, by comparison with other web scraping solutions, saving countless hours in the data collection process. A basic work pipeline consists in allocating computational power for a parallel cluster, starting a Selenium server instance, starting multiple web browser instances, navigating and collecting data, closing the web browsers, the server and the nodes after each successful session or saving the browser state as a message in case of exception, as presented by algorithm \ref{alg:dc}.   
 
-\begin{algorithm}[h]
-	\caption{Algorithm for data collection}
-	\label{alg:dc}
-	\begin{algorithmic}
-		\State Read $URL's$
-		\State Detect cores
-		\State Allocate Cluster
-		\For{each $URL$}
-		 \State Start $node$
-		 \Procedure{Recursion}{$URL$}
-		 		\If{$URL$ is dead}
-		 			\State\Return
-		 		\Else
-		 			\State Visit URL
-		 			\State $text \gets get\_html[URL]$
-		 			\State $URL  \gets get\_url[text]$
-		 			\State $Data \gets get\_content[text]$
-		 			\State \Return \textsc{Recursion}{($URL$)}
-		 		\EndIf
-			\State Write $Data$
-			\EndProcedure
-		  \State Stop $node$
-		\EndFor	
-	\end{algorithmic}
-\end{algorithm}
 
 
-
-
-The automatic collection of prices observed on the sites included in the sample was made during
-the same period as for the traditional CPI survey. Due to the noise present in extracted data, 
-decomposition at the core components of the CPI classification is required first.To address this issue, we have 
-developed a series of R scripts that transform the data in a way that allows flexible handling. The CPI computation steps 
+Same periods for data collection from the websites selected in the first step of our project were kept as in CPI traditional survey. 
+Due to the noise present in extracted data, 
+decomposition at the core components of CPI classification is required first.To address this issue, we have 
+developed a chain of R scripts that transform the data in a way that allows flexible processing. The CPI computation steps 
 are sequentially deployed, the data input for each stage depending on the output of previous stage, 
 except for the first step whose input depends on raw data.
-
 
 In the following paragraphs activities carried out at each stage will be described, underlying that we attempted to keep the 
 traditional CPI methodology as much as possible intact. A graphical representation of the data collection and processing is shown in Fig.\ref{fig:1}.
 
-\begin{figure}
-\centering
-\includegraphics[height=0.7\linewidth]{fig6.eps}
-\caption{Data collection and processing session}
-\label{fig:1}
-\end{figure}
 
 
 The first activity was the data cleaning. We started with 
-the web scrapped files and performed some basic operations checking for missing data and other basic validation operations. 
+the web scrapped data and performed some basic operations, checking data integrity and consistency with the CPI classification. 
 In case there are missing items among the data sets, the web-scrapping process resumes, after checking the online accessibility 
-of the site and the log files of the web-scrapping application. Some possible error sources could be: 
+of the site and the log files of the web-scrapping application. In this process we identified a set of error types that had to be checked frequently: 
 \begin{itemize}
-\item sites were unavailable or have undergone changes;
-\item the web-scrapping application encountered web content elements that cannot be directly processed;
-\item web server identified the web-scrapping application as a malicious software and imposed an access restriction to the site at the IP address level.
+\item periods of downtime for some websites or changes in sites structures;
+\item for some dynamically generated content of sites some measures should be taken for the data collection procedures;
+\item the web application that supports the online distribution channel for some retailers has mechanism for robot detection and blocked our data collection 
+procedure.
 \end{itemize}
 
 
-Next, all the files obtained from the data collection process for a certain month are joined automatically. The resulting 
-file is read by an R script and transformed into a data structure suitable for an automatic processing procedure. Some 
+Next, all the files obtained from the data collection process for a certain month are joined based on item/retailer/collection period. The output 
+file is fed into an R script and transformed into a data structure suitable for an automatic processing procedure. Some 
 basic transformations are again performed using an automated R script, before classifying and linking the products according 
-to the CPI classification. We started with the manual product linking and classification according to the standard CPI 
-classification which implies identifying the observations which contain a description similar to the one provided in the
-classical CPI classification. This activity can generate errors whose propagation can significantly influence the quality 
-of results. The principle that we used in the absence of a previous experience in working with methodological aspects 
+to the CPI classification. First we performed a manual product linking and classification according to the standard CPI 
+classification which implies identifying the items which contain a description similar to the one provided in the
+classical CPI classification. Being a manual user input activity it is error prone, and the propagation of the possible errors can significantly influence the quality of results. The principle that we used in the absence of a previous experience in working with methodological aspects 
 for product selection was to assume that the consumer will choose a product or products substitutable to the one present 
-in the standard classification within a reasonable price limit ($<= 150\%$ of the price of an article from the standard classification). 
+in the standard classification within a reasonable price limit ($<= 150\%$ of an item price from the standard CPI classification). 
 
-Thus, we chose to select several articles for one assortment within the same observation point. To reinforce the strict tracking 
+Therefore, we selected several items for one assortment in the same statistical unit. To reinforce the strict tracking 
 rule of the same articles found in the standard CPI methodology, we performed join operations between the data structures 
 for all decades and observed months. The join operation between two or more tables was based on the "name" variable containing 
 the product description by matching strings in a 1 to 1 ratio. After performing this activity, from an initial number 
 of about 10,000 of articles, they were restricted to 545 articles, 216 assortments, and 52 expenditure groups, 
 identified as constant during the 6 months of observation, assuming that the description given in the observations 
-made for the variable "name" represents a guarantor for the invariance of the technical and qualitative characteristics of the targeted products.
+made for the variable "name" represents a guarantor for the invariance of technical and qualitative characteristics of the targeted products.
 
 
-Several attempts were made to develop an automatic classification procedure with encouraging results. However, their use 
-would involve deviations from the classical CPI methodological framework, manifested by the appearance and disappearance 
-of the articles in the sample with a high frequency. We tried several machine learning and distance-based algorithms 
-for this procedure and the results are presented in table 1. The best results, as it can be observed in \ref{table:2}, 
-were obtained using the Levenshtein distance.
+Several attempts were made to develop an automatic classification procedure of the selected items according to the standard CPI classification. 
+However, their use would involve deviations from the classical CPI methodological framework, manifested by the appearance and disappearance 
+of the articles in the sample with a high frequency. We tested the most important machine learning and distance-based algorithms 
+used in similar classification procedures. The best results, as it can be observed in \ref{table:2}, were obtained using the Levenshtein distance.
 
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{ c c }
-	\hline
-	Algorithm & Accuracy \\
-	\hline  
-	Boosting & 0.56 \\  
-	Support Vector Machines & 0.34 \\
-	Random Forests &  0.41 \\
-	Scaled linear discriminant analysis & 0.17 \\
-	Bagging & 0.28 \\
-	Regex & 0.70 \\
-	Levenstein Distance & 0.80 \\
-	\hline
-\end{tabular}
-\caption{A summary of the methods used for automatic classification}
-\label{table:2}
-\end{table}
 
 \section{Some methodological aspects}\label{methodology}
 
@@ -276,8 +207,8 @@ $n$ = number of periods for which the price data was collected in a given month,
 $p_{v_{j}}$ = price of an item in $j^{th}$ period within a month.\\	
 
 
-The average is used to compute elementary 
-price indices at product/variety level, by dividing the current monthly average for an item to it's respective base period monthly average. 
+The arithmetic mean is used to calculate the elementary 
+price indices at item level, by dividing the current monthly average for an item to it's respective base period monthly average. 
 
 \begin{equation}\label{eq:2}
 i_{p_{v}} = \frac{\overline{p}_{v_{current}}}{\overline{p}_{v_{base}}} ,
@@ -295,19 +226,20 @@ i_{g} = \sqrt[n]{\prod_{j=1}^{n} i_{p_{v_{j}}}}
 \end{equation}
 where:\\
 $i_{g}$ = elementary price index for a generic product, \\
-$n$ = number of products within the same assortment based on the classification score, \\
+$n$ = number of items within the same assortment based on the classification score, \\
 $i_{p_{v_{j}}}$ = the $j^{th}$ elementary price index within the same assortment.\\
 
 
-The subsequent calculations follow roughly the steps as in the Romanian National Institute of Statistics CPI methodology\cite{cpi}. Taking into consideration that in order to obtain the price index at the expenditure category level, e.g. items containing white flour, we assigned to each category a weight equal to $\frac{1}{n}$,
-where $n$ is the number of assortments identified as belonging to the same category. 
+The following steps of the computation procedure were performed roughly according to the the Romanian National Institute of Statistics CPI methodology\cite{cpi}.
+Taking into consideration that in order to obtain the price index at the expenditure category level (e.g. items containing white flour) we assigned a weight equal to $\frac{1}{m}$ to each category,
+where $m$ is the number of assortments identified as belonging to the same category. 
 
 \begin{equation}\label{eq:4}
-i_{a} = \sqrt[n]{\prod_{j=1}^n i_{g_{j}}}
+i_{a} = \sqrt[m]{\prod_{j=1}^m i_{g_{j}}}
 \end{equation}
 where:\\
 $i_{a}$ = price index for an assortment, \\
-$n$ = number of statistical units per assortment, \\
+$m$ = number of generic items belonging to the same assortment, \\
 $i_{g_{j}}$ = elementary price index for a generic item in the $j^{th}$ statistical unit.\\
 
 
@@ -360,61 +292,31 @@ $w_{r_{j}}$ = re-calibrated weight for the $j^{th}$ category.\\
 The process diagram is shown in Fig.\ref{fig:2}, while in Fig.\ref{fig:3} we build a process diagram in terms of GSBPM (Generic Statistical Business Process Model)\cite{gsbpm}. The GSPBM framework was used to attain a small, but relatively modular production pipeline, as a monitoring and integration tool and, also, as a checklist in producing some preliminary results. Starting with some basic objectives, we tried to identify critical points in the production pipeline and provide flexible definitions for a set of activities flagged as important. While not present in the diagram, the entire workflow chain contains feedback loops between each state and on the state itself, in order to build incremental improvements taking into consideration the allocated resources. Depending on future needs, the entire pipeline can be subjected to re-engineering.      
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{fig1.eps}
-\caption{The process diagram for computing online price index}
-\label{fig:2}
-\end{figure}
-
-
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{fig2.eps}
-\caption{The GSBPM diagram}
-\label{fig:3}
-\end{figure}
 
 
 
 \section{Results and discussion } \label{results}
 
-
-Using August 2017 as the basis for computation of the monthly price index, we obtained the aggregated indices at the 
-groups of food, clothing and footwear presented in figures \ref{fig:4}, \ref{fig:5}, and \ref{fig:6}.
-
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{fig3.eps}
-\caption{The comparative evolution of the price indices for food}
-\label{fig:4}
-\end{figure}
+We used August 2017 as the basis for calculating monthly price index since this was the first month when started data collection process.
+and we obtained the aggregated indices at the 
+groups of food, clothing and footwear displayed in figures \ref{fig:4}, \ref{fig:5}, and \ref{fig:6}.
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{fig4.eps}
-\caption{The comparative evolution of the price indices for clothes}
-\label{fig:5}
-\end{figure}
+Based on the trends of the official/classical CPI and the experimental index computed using online price data one can note that the second index has a slightly different trajectory that can be explained based on the different samples and different weights at assortment and expenditure group level. 
+Another plausible explanation could consist in the non-probabilistic sampling process of online ignoring the local retailers, due to the lack of specific information. Selected food, clothing and footwear retailers generally cover large and medium cities and the neighboring areas, having complex pricing 
+policies which are different from small shops covering small city areas and rural communities.
 
+The results obtained until now show that online prices can be used in different new ways:
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\linewidth]{fig5.eps}
-\caption{The comparative evolution of the price indices for footwear}
-\label{fig:6}
-\end{figure}
+\begin{itemize}
+	\item calculate a separate online price index;
+	\item introducing a new category in the classical CPI based on online prices.
+\end{itemize}
 
+The findings point that this data collection procedure can be easily extended to all categories of products and services and, moreover, data collection process
+can be run with much higher periodicity, for example collecting daily prices.
 
-From the evolution of the two price indices considered, it can be noticed that the online 
-collection method implies a different trajectory due to the different samples used and the use 
-of equal weights at assortment and expenditure group level. Another possible explanation can be found 
-in the non-probabilistic sampling process through which online stores are selected ignoring the 
-representativeness at national level due to the lack of specific information. Selected food, 
-clothing and footwear stores can serve large cities and neighboring areas, having complex pricing 
-policies which are different from small shops serving small city areas and rural communities.
+While there are several web scraping solutions freely available or commercial ones, our experiments have shown that a solution based on RSelenium can be an optimal choice for a statistical office because is free and open source with no hidden costs, simultaneously being highly scalable.
 
 
 \section{Conclusions and future developments}\label{conclusions}
@@ -422,27 +324,23 @@ policies which are different from small shops serving small city areas and rural
 This project was the first experiment that implemented a web-scrapping technique for data collection 
 inside Romanian National Institute of Statistics. CBS's Robot Framework proved to be a very flexible web scraping tool, providing an easy solution
 for developing and maintaing code just for data collection. The major drawback is that currently is no longer
-in public active developement. RSelenium, along with other packages from R ecosystem, is a very powerful but easy to 
-use tool, greatly enhancing the flexibility through the use of a single programming language for the whole workflow pipeline.  
+in public active developement. RSelenium, along with other packages from R ecosystem, is a very powerful and easy to 
+use tool, greatly enhancing the flexibility through use of a single programming language for the whole workflow pipeline.  
 While we gained experience with the software tools, we also 
 identified some limitations for our specific study of online price collection which are briefly described below:
 \begin{itemize}
-\item Generalization hypothesis of online transactions. The number of households purchasing an 
-online product is relatively small, and generally depends on several factors such as the geographical position, 
-income level, education level, etc.
-\item Not all businesses with a significant volume of transactions included in the list of observation 
-units for traditional CPI has a website;
-\item The IT technology can have a significant impact on price variation. An example of this may be the discrimination 
-based on the geographic position of a user when displaying prices on a particular site;
-\item The components of the classical consumer basket and the weights used at the level of the expenditure groups do not 
-entirely reflect the consumption patterns and the budget restrictions of the population segment addressed by online stores.
+\item Generalization hypothesis of online transactions. The number of households that use online channels is relatively small, and they depends on several socio-economic factors such as income level, education level, geographic position etc.
+\item The IT technology can have an impact on price levels.
+\item Not all retailers with a significant sales volume included in the list of observation 
+units for traditional CPI have an online distribution channel;
+\item  The weight used at the expenditure groups in the classical CPI do not entirely capture the consumpation patterns of the population segment addresed by online stores. 
 \end{itemize}
 
 
-Based on the results obtained and the potential of the web-scrapping collection method we intend to try and implement 
-in other official statistics areas and we will continue to develop a specific/experimental online consumer price index [13], 
-by extending the current collection procedures to the entire products and services nomenclature and by 
-developing a new methodology based on the characteristics of the collected data. Secondly, a separate product and service nomenclature may 
+Based on the results obtained and the potential of the web-scrapping collection method we intend to implement 
+this data collection method other official statistics areas and we will continue to develop a specific/experimental online consumer price index [13], 
+by extending the current collection procedures to the entire range of products and services and by 
+developing a new methodology based on the characteristics of the collected data. Secondly, a separate product and service classification may 
 be developed specifically for online data based on measurements such as the longevity of certain products 
 and services in the online offer, and a series of metadata related to those products and services, for example, analysis of 
 online interaction based on buyers reviews with the respective brands and the online store.
@@ -592,5 +490,138 @@ UNECE, Generic Statistics Business Process Model; 2014. [Cited 2019 Jun 21] Avai
 \url{https://statswiki.unece.org/display/GSBPM/GSBPM+v5.0}
 
 \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ c c c p{0.4\linewidth}}
+		\hline
+		No. Crt. & Variable Name & Type & Definition  \\
+		\hline  
+		1 & \texttt{prod\_name} & string & Records the name of the item as seen on site.\\  \hline
+		2 & \texttt{prod\_des}  & string & Auxiliary information regarding item quantitative and qualitative specifications. \\ \hline
+		3 & \texttt{price}	  	& float  & Price of the item as seen on site.  \\ \hline
+		4 & \texttt{price\_old} & float  & Price unaffected by promotions or price per quantity.\\ \hline
+		5 & \texttt{site}	  	& string & Name of the site. \\ \hline
+		6 & \texttt{date} 	  	& date   & Collection date. \\ 
+		\hline
+	\end{tabular}
+	\caption{Collected variables description}
+	\label{table:1}
+\end{table}
+
+\clearpage
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ c c }
+		\hline
+		Algorithm & Accuracy \\
+		\hline  
+		Boosting & 0.56 \\  
+		Support Vector Machines & 0.34 \\
+		Random Forests &  0.41 \\
+		Scaled linear discriminant analysis & 0.17 \\
+		Bagging & 0.28 \\
+		Regex & 0.70 \\
+		Levenstein Distance & 0.80 \\
+		\hline
+	\end{tabular}
+	\caption{A summary of the methods used for automatic classification}
+	\label{table:2}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.7\linewidth]{fig6.eps}
+	\caption{Data collection and processing session}
+	\label{fig:1}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig1.eps}
+	\caption{The process diagram for computing online price index}
+	\label{fig:2}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{fig2.eps}
+	\caption{The GSBPM diagram}
+	\label{fig:3}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig3.eps}
+	\caption{The comparative evolution of the price indices for food}
+	\label{fig:4}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig4.eps}
+	\caption{The comparative evolution of the price indices for clothes}
+	\label{fig:5}
+\end{figure}
+
+\clearpage
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig5.eps}
+	\caption{The comparative evolution of the price indices for footwear}
+	\label{fig:6}
+\end{figure}
+
+\clearpage
+
+
+\begin{algorithm}[h]
+	\caption{Algorithm for data collection}
+	\label{alg:dc}
+	\begin{algorithmic}
+		\State Read $URL's$
+		\State Detect cores
+		\State Allocate Cluster
+		\For{each $URL$}
+		\State Start $node$
+		\Procedure{Recursion}{$URL$}
+		\If{$URL$ is dead}
+		\State\Return
+		\Else
+		\State Visit URL
+		\State $text \gets get\_html[URL]$
+		\State $URL  \gets get\_url[text]$
+		\State $Data \gets get\_content[text]$
+		\State \Return \textsc{Recursion}{($URL$)}
+		\EndIf
+		\State Write $Data$
+		\EndProcedure
+		\State Stop $node$
+		\EndFor	
+	\end{algorithmic}
+\end{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
